@@ -13,7 +13,7 @@ var n = 0;
 )
 
 (
-var vol = 0.6, n = 0, lpf=800, reverb=0.2;
+var vol = 0.3, n = 0, lpf=800, reverb=0.2;
 ~superhammondSc1.set(\amp, 0.6*vol, \freq, ~nToF.("b3", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.21, \lpf, lpf, \hpf, 100,\tremolorate, 6, \tremolodepth, 0.19, \pan, 0.2);
 ~superhammondSc2.set(\amp, 0.5*vol, \freq, ~nToF.("fs4", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.274, \lpf, lpf, \hpf, 100, \tremolorate, 4.7, \tremolodepth, 0.15, \pan, -1);
 ~superhammondSc3.set(\amp, 0.5*vol, \freq, ~nToF.("e5", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.154, \lpf, lpf, \hpf, 100, \tremolorate, 0.25, \tremolodepth, 0.5, \pan, 1);
@@ -31,6 +31,8 @@ var vol = 0.6, n = 0, lpf=800, reverb=0.2;
 ~pinknoise.set(\amp, 0.1, \hpf, 775, \lpf, 3500);
 
 ~pinknoise.free
+
+
 
 
 // =================================================
