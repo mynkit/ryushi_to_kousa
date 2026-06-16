@@ -1,0 +1,1105 @@
+setbpm 90
+
+-- 栁川さん: 04 5.5min
+
+-- 開始時
+
+d1
+  $ (|* amp 0.25)
+  $ mix ((|+ n 12).(|* amp 0.7))
+  $ slow 2
+  $ s "SinOscSynthBend [~ [~SinOscSynthBend/2]]"
+  # n "<e4,a4,b4> <a5,d5,e5>"
+  # room 0.9 # sz 0.3 # dry 2.8
+  # pingpong 0.05 # pingpongt (3/8) # pingpongfb 0.8
+  # resi 1
+  # sustain 5
+  # sustainpedal 0.25
+  # slide 0.5
+  # theta "-0.1 0.1"
+  # amp 0.4
+
+-- 「微風のあと」〜
+
+d2
+  $ (|* amp 0.25)
+  $ mix ((|+ n 12).(|* amp 0.7))
+  $ slow 1.5
+  $ s "~ SinOscSynthBend ~ ~"
+  # n "<<e3,a5,<b5 fs5 b5 fs5>> <a3,af5,e4>>"
+  # room 0.9 # sz 0.3 # dry 2.8
+  # pingpong 0.05 # pingpongt (4/8) # pingpongfb 0.8
+  # resi 1
+  # sustain 5
+  # sustainpedal 0.25
+  # slide 0.5
+  # theta (range (-0.2) 0.2 $ fast 3.2 rand)
+  # amp 0.2
+
+d7
+  -- 水の流れ
+  $ (|* amp 0.4)
+  $ (|* gain (range 0.6 1 (fast 1.0 rand)))
+  $ (|* gain (range 0 0.27 (fast 15 rand)))
+  $ density (range 100 1000 $ slow (range 2.1 3.1 $ slow 5.5 saw) sine)
+  $ s "SinOscSynthBend"
+  # sustain (range 0.008 0.08 (rand))
+  # accelerate (range 2 5 (rand))
+  # n (range 54 (11) (rand))
+  # resi 0.5
+  # lpf 3000
+  # theta (range (-0.1) (0.1) (fast 1.5 rand))
+  # dis (range 0.5 0.9 $ fast 1.5 rand)
+  # amp 0.6
+  # gain 2.0
+  # ntag "yanagawa04"
+
+
+-- =================================================
+
+
+
+
+
+
+
+-- intro
+
+mod10
+  $ segment 64
+  $ pF "vibrato" (range 1 1.5 $ fast 0.5 saw)
+  # pF "vrate" (range 2 5 $ fast 0.3 rand)
+  # tremolorate (range 5 7 $ slow 11 $ sine)
+  -- # tremolorate (cF 0 "tremolorate")
+  # tremolodepth (range 0.5 0.3 $ slow 30 $ sine)
+  # theta (range (0.95) (1.05) $ slow 10 sine) # dis 1
+  -- # theta (fast 1.3 line) # dis 1
+  -- # theta (cF 0 "synthTheta") # dis (cF 0 "synthDis")
+  # hpf 800
+  # hpq (range 0.0 0.4 $ slow 2.5 rand)
+  # amp 0.2
+
+
+d10
+  $ (|* gain 1)
+  $ mix ((|+ n 12).(|* gain 0.6))
+  -- $ whenmod 16 12 ((|- n 2).(|* gain 1.08))
+  $ s "superhammondBend"
+  # gain 0.85
+  # n "<b2,fs3,e3,a3>"
+  # voice 1
+  # scReverb 0.9 # ice 0.3
+  # room 0.8 # sz 0.8
+  # ntag "intro"
+
+d10 silence
+
+
+do
+  setFm "osc0" 0.6
+  setFm "osc1" 0.5
+  setFm "osc2" 0.5
+  setFm "osc3" 0.4
+
+-- 1st row
+mod12
+  $ segment 64
+  $ amp 0.1
+  # cutoff 800
+  # scReverb (cF 0 "osc0") # ice ((cF 0 "osc0")*0.3)
+  # dry (((cF 0 "osc1") * 2) + 1)
+  # pingpong ((cF 0 "osc2")) # pingpongt (3/8) # pingpongfb (cF 0 "osc3")
+
+-- 2nd row
+mod13
+  $ segment 64
+  $ amp 0.1
+  # cutoff 3000
+  # scReverb (cF 0 "osc0") # ice ((cF 0 "osc0")*0.3)
+  # dry (((cF 0 "osc1") * 2) + 1)
+  # pingpong ((cF 0 "osc2")) # pingpongt (3/8) # pingpongfb (cF 0 "osc3")
+
+-- 3rd row
+mod14
+  $ segment 64
+  $ amp 0.1
+  # cutoff 3000
+  # scReverb (cF 0 "osc0") # ice ((cF 0 "osc0")*0.3)
+  # dry (((cF 0 "osc1") * 2) + 1)
+  # pingpong ((cF 0 "osc2")) # pingpongt (3/8) # pingpongfb (cF 0 "osc3")
+
+-- 4th row
+mod15
+  $ segment 64
+  $ amp 0.1
+  # cutoff 3000
+  # scReverb (cF 0 "osc0") # ice ((cF 0 "osc0")*0.3)
+  # dry (((cF 0 "osc1") * 2) + 1)
+  # pingpong ((cF 0 "osc2")) # pingpongt (3/8) # pingpongfb (cF 0 "osc3")
+
+-- 5th row
+mod16
+  $ segment 64
+  $ amp 0.1
+  # cutoff 3000
+  # scReverb (cF 0 "osc0") # ice ((cF 0 "osc0")*0.3)
+  # dry (((cF 0 "osc1") * 2) + 1)
+  # pingpong ((cF 0 "osc2")) # pingpongt (3/8) # pingpongfb 0.8
+
+
+
+d4
+  $ degradeBy 0.1
+  $ s "~ coffee/3 ~ ~"
+  # n (choose [7,8])
+  # up (choose [(-2),0,2])
+  # speed 0.25 
+  # lpf 2000
+  # resi 1
+  # room 0.9 # sz 0.9 # dry 2
+  # theta (choose [(-0.2), 0, (0.2)])
+  # amp 0.2
+  # ntag "intro"
+
+
+-- effect control
+
+do
+  setFm "osc0" 0
+  setFm "osc1" 0
+  setFm "osc2" 0
+  setFm "osc3" 0
+
+-- multi pendulum
+mod11
+  $ segment 64
+  $ scReverb (cF 0 "osc0") # ice ((cF 0 "osc0")*0.3)
+  # dry (((cF 0 "osc1") * 2) + 1)
+  # pingpong ((cF 0 "osc2")) # pingpongt (3/8) # pingpongfb (cF 0 "osc2")
+  # distort ((cF 0 "osc3") * 0.2)
+ 
+-- Part: kaion
+
+setbpm 90
+
+d5
+  -- $ slow 2
+  -- $ degradeBy 0.7
+  $ s "~ ice:2/2"
+  # room 0.9 # sz 0.98
+  # resi 1
+  -- # end 0.35
+  # speed (range 0.5 0.6 rand)
+  # lpf (1000)
+  # theta 0.13
+  # amp 0.8
+  # ntag "kaion"
+
+
+d6
+  -- $ slow 2
+  $ fast 1.5
+  -- $ degradeBy 0.4
+  -- $ someCyclesBy 0.5 (degradeBy 1)
+  $ s "~ guitar_async:20/4"
+  # up 24
+  -- # scReverb 0.9
+  # resi 1
+  # room 0.9 # sz 0.98 # dry 2.4
+  -- # pingpong 0.9 # pingpongt (3/16) # pingpongfb 0.9
+  # lpf 1500
+  # theta (-0.15)
+  # amp 0.8
+  # ntag "kaion"
+
+
+d7
+  $ slow 2
+  $ degradeBy 0.3
+  $ s "cucumber*3"
+  # n (choose [0,1,2])
+  # up (-12)
+  # lpf (1000 * 1)
+  # amp 0.05
+  # theta 0
+  # resi 1
+  # room 0.9 # sz 0.9
+  # ntag "kaion"
+
+d3
+  $ slow 2
+  -- $ degradeBy 0.8
+  $ s (fit 0 ["gagaku"] "0 ~ [~0] ~")
+  # n (choose [0,1])
+  # up (choose [0,0,12])
+  # resi 1
+  # lpf 1000
+  # theta (range (-0.2) 0.0 $ slow 4 sine)
+  # amp 0.1
+  # ntag "kaion"
+
+d8
+  -- $ mix ((|- n 5).(|* amp 1.3))
+  -- $ mix ((|+ n 5).(|* amp 1.0))
+  $ slow 4
+  $ s "padDirt"
+  # n "<a4,fs5>"
+  # amp 0.4
+  # hpf 100
+  # lpf 2000
+  # modspeed 500
+  # tremolodepth 0.7 # tremolorate (range 9 13 rand)
+  # scReverb 0.8 # ice 0.1
+  -- # room 0.8 # sz 0.9
+  -- # resi 1
+  # sustain 23
+  # pingpong 0.9 # pingpongt (3/8) # pingpongfb 0.9
+  # ntag "kaion"
+
+
+d4
+  $ degradeBy 0.1
+  $ s "~ coffee/3 ~ ~"
+  # n (choose [7,8])
+  # up (choose [(-2),0,2])
+  # speed 0.25
+  # resi 1
+  # room 0.9 # sz 0.9 # dry 2
+  # theta (choose [(-0.2), 0, (0.2)])
+  # amp 0.06
+  # ntag "kaion"
+
+
+all $ ((# room 0.98).(# sz 0.99))
+
+all $ (|* amp 1.0)
+
+d9
+  $ fast 0.5
+  $ degradeBy 0.2
+  $ every' 2 1 (degradeBy 1)
+  $ mix ((|- n 5).(|* amp 0.8))
+  $ sometimesBy 0.3 (0.125 ~>)
+  -- $ sometimesBy 0.2 (0.25 ~>)
+  -- $ sometimesBy 0.1 (0.5 ~>)
+  -- $ mix ((|+ n 12).(|* amp 0.7))
+  $ s "vibratoSineWave ~ ~ vibratoSineWave"
+  # sustain "1.4 2.0"
+  # pF "octaveMix" 0.8
+  # n "<cs4,a4,fs5> <<a4,b4,e5> <a4,b4,e5> <d4,b4,gs5> <d4,b4,gs5> <a4,b4,e5> <a4,b4,e5> <e4,fs4,b4> <e4,fs4,b4>>"
+  -- # n "<cs4,a4,fs5> <<a4,b4,e5> <a4,b4,e5> <cs4,a4,fs5> <cs4,a4,fs5> <a4,b4,e5> <a4,b4,e5> <e4,fs4,b4> <e4,fs4,b4>>"
+  # vibratoFreq 10 # vibratoDepth 0.3
+  # tremolorate (range 7 10 rand) # tremolodepth 0.7
+  # church 1
+  -- # lpf 7000
+  # scReverb 1.3 # ice 0.3
+  # room 0.8 # sz 0.96
+  -- # pingpong 0.6 # pingpongt (3/8) # pingpongfb 0.6
+  # amp 0.15
+  # ntag "kaion2"
+
+d8
+  $ fast 0.5
+  $ (|* amp 0.5)
+  $ degradeBy 0.6
+  $ sometimesBy 0.1 (|+ up 12)
+  $ sometimesBy 0.4 (|- up 12)
+  $ s "[~guitar_async] [~[~guitar_async]]"
+  # speed (-1)
+  # up (choose [0,2,5,7,12])
+  # n (choose [0..6])
+  # theta (range (-1) 1 $ fast 7 rand)
+  # church 1
+  # lpf 3000
+  # pingpong 0.3 # pingpongt (3/8) # pingpongfb 0.8
+  # room 0.9 # sz 0.99
+  # amp (range 0.15 0.2 $ slow 9 rand)
+  # ntag "kaion2"
+
+
+d2
+  $ (|* amp 0.9)
+  $ slow 2
+  $ s "superhammondBend/2"
+  # n "<<b3,a4,d5,e4> ~ <b4,a2,a3,d5,e4> ~>"
+  # sustain 0.24
+  # pF "vibrato" 0.5 # pF "vrate" (range 1.0 4.0 $ fast 1.1 rand)
+  # theta 0.0
+  # shape 0.05
+  -- # slide 1.4 # sustainpedal 0.5
+  # hpf 120 # hpq 0.0
+  # lpf 4000
+  -- # scReverb 0.9 # ice 0.5
+  # room 0.9 # sz 0.9 # dry 2.5
+  # tremolodepth 0.2 # tremolorate (range 5 1 $ fast 2.1 rand)
+  # pingpong 0.5 # pingpongt (1/32) # pingpongfb 0.9
+  # amp 0.6
+  # ntag "kaion2"
+
+d1
+  $ (|* amp 0.7) 
+  $ slow 2
+  $ while "f f [t f] f" (when ((/=2).(flip mod 4)) (degradeBy 1))
+  $ s (fit 0 ["tabla2:11","gagaku:1","gagaku:6"] "~1/3 0~  ~0~~  0~ 1/4 ~  ~~2/2~")
+  # lpf 800
+  # hpf 70 # hpq "0.2 0.2 0.2 0.0"
+  # room 0.4 # sz 0.1
+  # amp "[0.49 0.3] 0.3 [0.3 0.49] 0.25"
+  # ntag "kaion2"
+
+d3
+  $ (|* amp 0.6)
+  $ slow 2
+  $ while "f f t f" (every' 2 0 (degradeBy 1))
+  $ s (fit 0 ["gagaku:4","coffee:10"] "~~~~ ~~~~ ~~~~ ~~~0")
+  # lpf 800
+  # hpf 70 # hpq 0.2
+  # room "0.6 0.6 0.7 0.6" # sz "0.5 0.5 0.98 0.5"
+  # amp "0.7 0.7 0.25 0.7"
+  # ntag "kaion2"
+
+d7
+  $ slow 2
+  $ s "~!4 ~!4 ~!4 ~[vibratoSineWave/2]~~"
+  # n "a5"
+  # sustain 0.5
+  # vibratoDepth 0.35 # vibratoFreq (range 7 11 $ fast 0.89 rand)
+  # pF "octaveMix" 0.5
+  # room 0.7 # sz 0.92
+  # amp 0.15
+  # ntag "kaion2"
+
+d5
+  $ (0.007 ~>)
+  $ slow 2
+  $ while "f f t t" (every' 2 0 (degradeBy 1))
+  $ while "f f t f" (every' 8 1 (degradeBy 1))
+  $ while "f f t f" (every' 8 3 (degradeBy 1))
+  $ while "f f t f" (every' 8 5 (degradeBy 1))
+  $ s "bassSynth bassSynth/2 [~~ bassSynth bassSynth] [~ [bassSynth bassSynth]]"
+  # n "<a1,a2> <fs1,fs2> [~~ <a2,a1> <fs1,fs2>] [~ [<b1,b2> <e1,e2>]]"
+  # hpf 110 # hpf 0.0
+  # sustain "0.4 0.4 [0.01 0.01 0.09 0.8] 0.4"
+  # theta 0
+  # amp 0.2
+  # ntag "kaion2"
+
+
+-- Part: kasanari
+
+
+d4
+  $ slow 8
+  $ mix ((|- up 12).(|* amp 0.3))
+  $ s "gagaku"
+  # room 0.9 # sz 0.98 # dry 0
+  # n "<0,1>"
+  # up "<-9,-4>"
+  # theta 0
+  # resi 1
+  # lpf 1000
+  # hpf 60 # hpq 0.2
+  # amp 0.15
+  # ntag "kasanari"
+
+
+d9
+  $ fast (range 32 64 rand)
+  $ (|* amp 0.7)
+  $ degradeBy 0.92
+  $ s "branch"
+  # sustain 0.07
+  # theta (range (-1) 1 $ slow 3 rand)
+  # resi (range 0.8 0.9 $ slow 5 rand)
+  # lpf 4000
+  # amp (range 0.0 0.10 $ slow 7 rand)
+  # ntag "kasanari"
+
+
+d1
+  $ slow 2
+  $ fast 1.5
+  -- $ degradeBy 0.4
+  -- $ someCyclesBy 1 ((# pingpong 0.6).(# pingpongt (3/8)).(# pingpongfb 0.9))
+  $ s "~ guitar_async:20/32"
+  # up 11
+  -- # scReverb 0.9
+  # resi 1
+  # room 0.95 # sz 0.98 # dry 3
+  # lpf 1100
+  # theta (0)
+  # amp 0.3
+  # ntag "kasanari"
+
+
+d2
+  $ (|* amp 1.0)
+  $ slow 2
+  $ mix ((|- n 12).(|* amp 0.7))
+  $ when ((/=2).(flip mod 8)) (degradeBy 1)
+  $ s (fit 0 ["simpleSineWave"] "[0 [~[~0]]] ~ ~ ~")
+  # n "[fs5 b5] ~ ~ ~"
+  # amp 0.20
+  # sustain 1
+  # resi 1
+  # theta 0
+  # room 0.9 # sz 0.98
+  # ntag "kasanari"
+
+
+d5
+  $ (|+ n (12))
+  $ slow 2
+  -- $ mix ((|- n 12).(|* amp 0.7))
+  $ when ((/=2).(flip mod 8)) (degradeBy 1)
+  $ s "~ ~ ~ superfm"
+  # n "<e5,a6>"
+  # sustain 0.1
+  # amp 0.05
+  # room 0.9 # sz 0.97 # dry 2
+  # hpf 600 # lpf 2000
+  # theta (range (-0.1) 0.1 $ fast 7 rand)
+  # ntag "kasanari"
+
+
+d7
+  -- $ slow 2
+  -- $ (|- n 12)
+  $ (|* amp 1.5)
+  $ when ((/=3).(flip mod 4)) (degradeBy 1)
+  $ s "[~padDirt]"
+  # n "<<a4,fs6> <cs6>>"
+  # amp 0.1
+  # hpf 170 # lpf 2000
+  # pF "modspeed" 5000
+  # tremolodepth 0.8 # tremolorate (range 2 6 rand)
+  # resi 1
+  # scReverb 0.9 # ice 0.3
+  # sustain 20
+  # pingpong 0.9 # pingpongt (3/8) # pingpongfb 0.9
+  # ntag "kasanari"
+
+
+once
+  $ s "cucumber"
+  # resi 1
+  -- # church 1
+  -- # room 0.8 # sz 0.1
+  # amp 0.1
+  # ntag "kasanari"
+  # orbit 1
+
+
+
+
+-- Part: hollow
+
+setbpm 90
+
+d3
+  $ (|* amp 0.5)
+  $ (|+ n 2)
+  $ slow 2
+  $ mix ((|+ n 5).(|* amp 0.6))
+  $ (|+ n 12)
+  $ s (fit 0 ["padDirt"] "0 0 0 0 ~~~0/4 ~~0~ ~~~~")
+  # n "[<e3 e3 e3 cs4> <b4> <fs4> <~>] [~] [~] [~]"
+  # amp "[0.8 1 0.7 0.7] 0.8 1 1"
+  # sustain "[10 0.8 0.8 2] 1.5 1 1"
+  # church 1
+  # tremolorate 9 # tremolodepth 0.4
+  # pingpong 0.3 # pingpongt (3/4) # pingpongfb 0.8
+  # room 0.81 # sz 0.95
+  # hpf 80
+  -- # lpf 3400
+  # scReverb 1
+  # ntag "hollow"
+
+
+d5
+  $ slow 1
+  $ degradeBy 0.4
+  -- $ mix ((|- n 12).(|* amp 0.5))
+  $ someCyclesBy 0.9 ((1/4)~>)
+  $ mix ((|- n 5).(|* amp 0.8))
+  -- $ sometimesBy 0.3 ((1/8)~>)
+  $ sometimesBy 0.3 ((|+ n "5"))
+  $ s "[~ supervibe/16] [supervibe/8 [supervibe/2]] [supervibe/12] ~"
+  # n "<e5,e6> [fs6 <cs5,cs6>] <b5,fs4> ~"
+  # sustain 0.08
+  # lpf 4000
+  # hpf 60 # hpq 0.4
+  # theta (range (-0.1) 0.1 $ slow 22 rand)
+  # room 0.9 # sz 0.96 # dry 2.6
+  # amp 0.06
+  # ntag "hollow"
+
+d6
+  $ degradeBy 0.9
+  $ (|* amp 0.2)
+  $ sometimesBy 0.4 ((1/128) ~>)
+  $ sometimesBy 0.5 ((9/128) ~>)
+  $ sometimesBy 0.5 ((11/128) ~>)
+  $ sometimesBy 0.6 ((19/128) ~>)
+  $ someCyclesBy 0.4 rev
+  $ s "supergong*23"
+  # n (innerJoin $ choose ["a9","b8","cs9","fs8","e8","gs8","cs10","af9","b9"])
+  # sustain 0.4
+  # lpf 3000
+  # resi 1
+  # theta (range (-1) 1 $ slow 3 rand)
+  # room 0.9 # sz 0.93 # dry 2.3
+  # amp (range 0.0 0.3 $ slow 11 rand)
+  # ntag "hollow"
+
+d4
+  $ (|* amp 0.5)
+  $ sometimesBy 0.8 (|* speed (-1))
+  $ sometimesBy 0.5 (|+ up (choose [0,2,5,12]))
+  $ mix ((|* amp 0.7).(|+ up 7))
+  $ degradeBy 0.85
+  $ sometimesBy 0.3 (0.5 ~>)
+  $ sometimesBy 0.3 (0.25 ~>)
+  $ sometimesBy 0.3 (0.75 ~>)
+  $ fast 4
+  $ s "~harmonics~~"
+  # up (-12)
+  -- # n 6
+  # speed 1
+  # room 0.8 # sz 0.9 # dry 2.9
+  # n (fast 1.05 $ irand 6)
+  # lpf 2000
+  # resi 1
+  # theta (range (-1) 1 rand)
+  # amp (range 0.08 0.1 $ fast 4 rand)
+  # pingpong 0.4 # pingpongt (3/32) # pingpongfb 0.8
+  # ntag "hollow"
+
+-- Part: dizzy
+
+d1
+  $ (|* amp 0.6)
+  $ fast (range 1 0.2 rand)
+  $ someCyclesBy 0.2 (degradeBy 1)
+  $ sometimesBy 0.2 (degradeBy 1) $ (|* amp (range 0.9 1 rand))
+  $ (|* gain "[1 0.2]*5")
+  $ (|* gain 0.9)
+  $ s "nailClapper*20"
+  # n "<15,20>"
+  # theta (range (0.1) (0.15) rand*rand) # dis 1
+  # sustain (range 0.25 0.3 rand*rand)
+  # room 0.8 # sz 0.5 # dry 2
+  # resi 1
+  # lpf (range 2000 1500 rand*rand)
+  # hpf 300
+  # ntag "dizzy"
+
+d3
+  $ slow 2
+  $ mix ((|+ n 5).(|* amp 0.6))
+  $ s "[~ vibratoSineWave/3] [~ vibratoSineWave/3]"
+  # vibratoDepth 0.5 # vibratoFreq 2
+  # room 0.9 # sz 0.98
+  # resi 1
+  # sustain 7
+  # n "<cs5,fs5> <a4,e5>"
+  # octaveMix 0.5
+  # amp 0.15
+  # ntag "dizzy"
+
+d4
+  $ slow 8
+  $ mix ((|- up 12).(|* amp 0.3))
+  $ s "gagaku"
+  # room 0.9 # sz 0.9
+  # n "<0,1>"
+  # up "<-9,-4>"
+  # theta 0
+  # lpf 1000
+  # hpf 60 # hpq 0.2
+  # amp 0.1
+  # ntag "dizzy"
+
+d5
+  $ fast 1.5
+  $ (|* amp 0.5)
+  $ (mix ((|+ up (-5)).(|* amp 0.8)))
+  $ someCyclesBy 0.3 (degradeBy 1)
+  $ someCyclesBy 0.4 (|- up (choose [2,5]))
+  -- $ someCyclesBy 0.1 (|- up 12)
+  $ mix ((|* amp (range 0 1 rand)).((range 0.042 0.101 rand) ~>).(|+ n (range 1 5 rand)))
+  $ mix ((|* amp (range 0 1 rand)).((range 0.145 0.232 $ slow 5 rand) ~>).(|+ n (range 4 8 rand)))
+  -- $ mix (((range 0.03 0.058 $ slow 5 rand) ~>).(|+ n (range 1 5 rand)))
+  $ s "guitar_async"
+  # amp (range 0.15 0.2 $ slow 5 rand)
+  -- # room 0.0 # sz 0.0
+  # resi 1
+  -- # church 1
+  # hpf 80 # hpq 0.4
+  # room 0.9 # sz 0.96 # dry 2.1
+  # lpf 1800
+  -- # scReverb 1 # ice 0
+  # n (range 0 8 $ slow 4 rand)
+  # theta (range (-0.15) 0.15 $ slow 11 rand)
+  # ntag "dizzy"
+
+
+d6
+  $ degradeBy 0.85
+  $ s "furin*5"
+  # resi 1
+  -- # lpf 4000
+  # up (choose [-2, -5])
+  # room 0.98 # sz 0.99 # dry 3
+  # theta (range (-0.2) 0.2 $ slow 13 rand)
+  # amp 0.00
+  # ntag "dizzy"
+
+-- Part: tomurai 
+
+d1
+  $ degradeBy 0.8
+  $ s "collide*2"
+  # room 0.9 # sz 0.93 # dry 2
+  # n (choose [0..2])
+  # speed (range 0.5 0.8 $ slow 4 rand)
+  # hpf 60 # hpf 0.3
+  # lpf 1500
+  # shape 0.4
+  # theta (range (-0.3) 0.3 $ fast 5 rand)
+  # orbit 0
+  # amp 0.2
+  # ntag "tomurai"
+
+d2
+  $ degradeBy 0.1
+  $ s "~ ice/2"
+  # resi 1
+  # room 0.8 # sz 0.6 # dry 3
+  # lpf 2000
+  # hpf 70 # hpq 0.3
+  # speed (range 0.5 1 $ slow 5 rand)
+  # n (choose [0..10])
+  # theta (range (-0.2) 0.2 $ fast 7 rand)
+  # amp 0.8
+  # ntag "tomurai"
+
+
+d3
+  $ fast (1/3)
+  $ (|* amp 1.0)
+  -- $ mix ((|- n 24).(|* amp 0.25))
+  $ stack [
+  s (fit 0 ["vibratoSineWave"] "0/2 0/8 0/2 0/12 ~!4 ~!4")
+  # n "<cs5,e5> b4 <cs5,fs5> <a4,gs5> ~!4 ~!4"
+  # amp 0.3
+  ,
+  s (fit 0 ["vibratoSineWave"] "0/2 0/8 0/2 0/12 ~!4 ~!4")
+  # n "cs3 b2 cs3 a2 ~!4 ~!4"
+  # amp 0.10
+  ]
+  # sustain 3
+  # room 0.9 # sz 0.95 # dry 2
+  # pingpong 0.1 # pingpongt (1/2) # pingpongfb 0.95
+  # vibratoFreq (range 9 10 rand) # vibratoDepth 0.3
+  # octaveMix 0.3
+  # lpf 5000
+  # ntag "tomurai"
+
+
+once
+  $ s "door"
+  # amp 0.2
+  # n (choose [2])
+  # speed 4
+  # lpf 1500
+  # room 0.9 # sz 0.97 # dry 3
+  # delay 0.7 # delayt (1/16) # delayfb 0.6 # lock 1
+  # resi 1
+  # theta 0.05
+  # orbit 3
+  # ntag "tomurai"
+
+d4
+  $ degradeBy 0.4
+  $ s " ~ [~ door/4]"
+  # amp 0.14
+  # n (choose [2])
+  # speed (range 5 7 $ slow 9 rand)
+  # lpf 1500
+  # room 0.9 # sz 0.8 # dry 3
+  # delay 0.7 # delayt (1/16) # delayfb 0.8 # lock 1
+  # resi 1
+  # theta (range (-0.2) 0.2 rand)
+  # ntag "tomurai"
+
+d6
+  -- $ degradeBy 0.1
+  $ s "~ ~ ~ [~ superfm/4]"
+  # n "<fs9>"
+  # sustain 0.16
+  # room 0.9 # sz 0.97 # dry 2.5
+  # amp 0.004
+  # ntag "tomurai"
+
+d5
+  -- $ degradeBy 0.8
+  $ s (fit 0 ["gagaku"] "~0~~ 0~~0 ~~0~ ~0~~")
+  # n (choose [1,2,3])
+  # speed 3
+  # lpf 1000
+  # theta (range (-0.15) 0.2 $ slow 3 sine)
+  # room 0.9 # sz 0.97 # dry 3
+  # resi 1
+  # amp 0.06
+  # ntag "tomurai"
+
+-- gakai
+
+d1
+  $ (|* amp 0.9)
+  $ fast 1.5
+  $ (mix ((|+ up (-5)).(|* amp 0.8)))
+  $ someCyclesBy 0.5 (degradeBy 1)
+  $ someCyclesBy 0.4 (|- up (choose [2,5]))
+  -- $ someCyclesBy 0.1 (|- up 12)
+  $ mix ((|* amp (range 0 1 rand)).((range 0.042 0.101 rand) ~>).(|+ n (range 1 5 rand)))
+  $ mix ((|* amp (range 0 1 rand)).((range 0.145 0.232 $ slow 5 rand) ~>).(|+ n (range 4 8 rand)))
+  -- $ mix (((range 0.03 0.058 $ slow 5 rand) ~>).(|+ n (range 1 5 rand)))
+  $ s "guitar_async"
+  # amp (range 0.07 0.15 $ slow 5 rand)
+  # room 0.9 # sz 0.97 # dry 2
+  -- # resi 1
+  # church 1
+  -- # room 0.9 # sz 0.99
+  -- # scReverb 1 # ice 0
+  # n (range 0 8 $ slow 4 rand)
+  # theta (0)
+  # ntag "gakai"
+
+d2
+  $ (|* amp 0.9)
+  $ fast (4/3)
+  $ (mix ((|+ up (-5)).(|* amp 0.8)))
+  $ someCyclesBy 0.6 (degradeBy 1)
+  $ someCyclesBy 0.5 (|- up 2)
+  -- $ someCyclesBy 0.1 (|- up 12)
+  $ mix ((|* amp (range 0 1 rand)).((range 0.076 0.10 rand) ~>).(|+ n (range 1 3 rand)))
+  $ mix ((|* amp (range 0 1 rand)).((range 0.204 0.246 $ slow 5 rand) ~>).(|+ n (range 2 6 rand)))
+  $ sometimesBy 0.2 ((|* amp (range 0 1 rand)).(mix (((range 0.030 0.064 $ slow 5 rand) ~>).(|+ n (range 5 8 rand)))))
+  $ s "guitar_async"
+  # amp (range 0.08 0.12 $ slow 3 rand)
+  # room 0.9 # sz 0.97 # dry 2
+  -- # resi 1
+  # church 1
+  # n (range 8 14 $ slow 4 rand)
+  # theta (range (0.4) (0.1) rand)
+  # ntag "gakai"
+
+d3
+  $ (|* amp 0.9)
+  $ fast (5/4)
+  $ (mix ((|+ up (-5)).(|* amp 0.8)))
+  $ someCyclesBy 0.6 (degradeBy 1)
+  $ someCyclesBy 0.5 (|- up 2)
+  -- $ someCyclesBy 0.1 (|- up 12)
+  $ mix ((|* amp (range 0 1 rand)).((range 0.028 0.10 rand) ~>).(|+ n (range (-5) 0 rand)))
+  $ mix ((|* amp (range 0 1 rand)).((range 0.048 0.114 $ slow 5 rand) ~>).(|+ n (range (-3) 2 rand)))
+  $ sometimesBy 0.2 ((|* amp 0.7).(mix (((range 0.048 0.075 $ slow 5 rand) ~>).(|+ n (range (-5) (4) rand)))))
+  $ s "guitar_async"
+  # amp (range 0.09 0.15 $ slow 7 rand)
+  -- # resi 1
+  # room 0.9 # sz 0.97 # dry 2
+  # church 1
+  # n (range 16 20 $ slow 4 rand)
+  # theta (range (-0.4) (-0.1) rand)
+  # ntag "gakai"
+
+d4
+  $ slow 2
+  $ (|* amp (range 0.6 1 $ slow 8 sine))
+  -- $ degradeBy 0.6
+  $ s "[~tabla2~~] [tabla2 ~ ~ tabla2]"
+  # n (choose [8..16])
+  -- # theta (slow 8 line)
+  # resi 1
+  # speed 0.5
+  # lpf 2000
+  # hof 100 # hpq 0.4
+  # room 0.95 # sz 0.3
+  # amp 0.08
+  # ntag "gakai"
+
+
+d6
+  $ slow 2
+  $ someCyclesBy 0.3 (degradeBy 1)
+  $ s "cucumber*3"
+  # up (-12)
+  # lpf 1000
+  # amp 0.15
+  # hpf 50 # hpq 0.3
+  # resi 1
+  -- # room 0.9 # sz 0.9
+  -- # scReverb 0.9 # ice 0.9
+  # ntag "gakai"
+
+
+d7
+  $ degradeBy 0.6
+  $ whenmod 8 5 (degradeBy 1)
+  -- $ (|+ up (choose [0,2,5,7,12]))
+  $ every' 4 3 (|* amp 0.5)
+  $ s "~ guitar_async:20 ~~"
+  # up 24
+  -- # scReverb 0.9
+  # resi 1
+  # room 0.9 # sz 0.97 # dry 3
+  -- # scReverb 1 # ice 1
+  # pingpong 0.5 # pingpongt (3.1/8) # pingpongfb 0.3
+  # lpf 2000
+  # amp 0.6
+  # ntag "gakai"
+
+
+-- Part: teiryu
+
+d1
+  -- $ fast (1/2)
+  $ (# speed (range 0.7 0.8 rand))
+  -- $ degradeBy 0.2
+  $ sometimesBy 0.45 (# n (choose [8,9]))
+  $ sometimesBy 0.05 (# n (choose [7]))
+  $ s "record"
+  # n (choose [8])
+  # shape 0.1
+  # hpf 100
+  # resi 0.2
+  # lpf 3000
+  # room 0.1 # sz 0.3
+  # pingpong 0.3 # pingpongt (3/16) # pingpongfb 0.8
+  # amp 0.5
+  # ntag "teiryu"
+
+d2
+  -- $ slow 1
+  $ degradeBy 0.8
+  $ s "[~cable]*2"
+  # ntag "teiryu"
+
+
+d3
+  $ slow 4
+  -- $ whenmod 4 2 (degradeBy 1)
+  $ (0.02 ~>)
+  -- $ mix ((|- n 9).(|* amp 0.6))
+  $ mix ((|- n 5).(|* amp 0.6))
+  $ s "vibratoSineWave ~ [~[~vibratoSineWave]] ~"
+  # sustain 10
+  # n "<fs5,cs5> ~ <a5,fs5> <a5,fs5>"
+  # vibratoFreq 10 # vibratoDepth 0.9
+  # tremolorate 15 # tremolodepth 0.4
+  # resi 1
+  # scReverb 0.9
+  # room 0.8 # sz 0.9
+  # pingpong 0.9 # pingpongt (3/4) # pingpongfb 0.6
+  # amp 0.25
+
+d4
+  $ s "~ simpleSawWave/4"
+  # n "<e2>"
+  # sustain 8
+  # hpf 50 # hpq 0.3
+  # lpf 700
+  # amp 0.17
+  # ntag "teiryu"
+
+d5
+  $ s "superfm/10"
+  # amp 0.04
+  # n "cs9"
+  # sustain 0.01
+  # room 0.9 # sz 0.99 # dry 3
+  # theta 0
+  # ntag "teiryu"
+
+
+
+-- teiryu2
+
+d1
+  $ fast (3/5)
+  $ sometimesBy 0.5 (while "f t f f f f f f" ((1/64) ~>))
+  $ s (fit 0 ["vibratoSineWave"] "0/2 0/4 ~!2 ~ ~ 0/2 ~")
+  # n "<fs5,gs4,cs5,a2> <e5,gs4,cs5,a2> ~!2 ~ ~ <cs3,gs3> ~"
+  # resi 1
+  # room 0.9 # sz 0.97 # dry 2
+  # octaveMix 0.5
+  # hpf 90
+  # sustain "1.8 1.0"
+  # shape "0.2 0.5"
+  # vibratoFreq (range 9 11 $ slow 11 rand) # vibratoDepth 0.4
+  # amp 0.23
+  # ntag "teiryu2"
+
+d2
+  $ fast (3/5)
+  $ mix ((|+ n 12).(|* amp 0.7))
+  $ s (fit 0 ["FastSinSynth"] "~!2 [~ 0/8] ~ ~!4")
+  # n "<gs5>"
+  # sustain 15
+  # room 0.98 # sz 0.94 # dry 3
+  # resi 1
+  # theta (choose [(-0.1), 0.1])
+  # amp 0.06
+  # ntag "teiryu2"
+
+d3
+  -- $ fast 0.5
+  $ (|* amp 0.6)
+  $ degradeBy 0.7
+  $ sometimesBy 0.3 (|- n 2)
+  -- $ (|- up 12)
+  $ s "[~guitar_async] [~[~guitar_async]]"
+  # speed (-1)
+  # up (choose [0,2,5,7,(-12)])
+  # n (choose [0..6])
+  # theta (range (-1) 1 $ fast 7 rand)
+  # tremolorate 25 # tremolodepth 0.5
+  # hpf 100
+  # lpf 2000
+  # room 0.8 # sz 0.96
+  # amp (range 0.1 0.3 $ slow 9 rand)
+  # ntag "teiryu2"
+
+-- rotate
+d4
+  $ (|* amp 0.1)
+  $ sometimesBy 0.1 (degradeBy 1)
+  -- $ sometimesBy 0.02 ((ply (choose [4,8,10])).(|* amp 0.6))
+  $ (|* amp (range 1 0.8 rand))
+  $ (|+ n 12)
+  $ s "superfm*32"
+  # n "<e5,a5>"
+  # sustain 0.01
+  # amp 0.03
+  # room 0.8 # sz 0.8 #dry 0
+  # resi 1
+  # hpf 600
+  # lpf 2000
+  # theta (range (1) (-1) $ slow 6 line)
+  # ntag "teiryu2"
+
+
+d5
+  $ slow 3
+  -- $ degradeBy 0.5
+  $ s "~ supervibe/2 ~"
+  # n (innerJoin $ choose ["<e5,fs5>"])
+  # sustain 0.1
+  # lpf 7000
+  # room 0.9 # sz 0.98 # dry 2.6
+  # amp 0.18
+  # ntag "teiryu2"
+
+
+
+
+
+
+-- resonant 
+
+d5
+  -- $ slow 2
+  $ when ((/=0).(flip mod 2)) (degradeBy 1)
+  $ s "[~ [~bassSynth]] [~ bassSynth] ~ ~"
+  # n "<b1>"
+  # sustain "0.55 <0.36 0.6> 0.1 0.1"
+  # amp 0.5
+  # theta (0.0) # dis 1
+  # ntag "resonant"
+
+d3
+  $ when ((/=3).(flip mod 8)) (degradeBy 1)
+  -- $ whenmod 16 8  (|- n (5))
+  $ mix ((|- n 12).(|* amp 0.6))
+  $ s "~ ~ [~FastSinSynth]~"
+  -- # n "<fs6,a6>"
+  # n "<a5>"
+  # theta (-1)
+  # sustain 15
+  # resi 1
+  # room 0.9 # sz 0.9 # dry 2.5
+  # pingpong 0.7 # pingpongt (3/8) # pingpongfb 0.7
+  # amp 0.3
+  # ntag "resonant"
+
+
+-- rotate
+d4
+  $ (|* amp 0.04)
+  $ sometimesBy 0.3 (degradeBy 1)
+  -- $ sometimesBy 0.02 ((ply (choose [4,8,10])).(|* amp 0.6))
+  $ (|* amp (range 1 0.8 rand))
+  $ (|+ n 12)
+  $ s "superfm*32"
+  # n "<e5,a5>"
+  # sustain 0.01
+  # amp 0.3
+  # room 0.8 # sz 0.90 #dry 2.5
+  # resi 1
+  # hpf 600
+  # lpf 2000
+  # theta (range (1) (-1) $ slow 6 line)
+  # ntag "resonant"
+
+-- Part: sineharm
+
+d6
+  $ slow 4
+  -- $ (0.125 ~>)
+  $ mix ((|+ n 12).(|* amp 0.5))
+  $ every' 4 3 (degradeBy "0 1")
+  $ every' 4 2 (degradeBy "1 0")
+  $ every' 4 1 (degradeBy "0 0")
+  $ every' 4 0 (degradeBy "0 1")
+  $ s "[~[vibratoSineWave]] ~ ~ [vibratoSineWave] "
+  # sustain 20
+  # pF "octaveMix" 0.8
+  # n "<fs5,d5,b4>  <e5,af5,cs5> "
+  # vibratoFreq 10 # vibratoDepth 0.3 # tremolorate (range 5 9 rand) # tremolodepth 0.7
+  # church 1
+  # scReverb 1.3 # ice 0.2
+  # room 0.8 # sz 0.99 # dry 3
+  # pingpong 0.6 # pingpongt (3/8) # pingpongfb 0.6
+  # amp 0.10
+  # ntag "sineharm"
+
+
+d5
+  $ degradeBy 0.8
+  $ s (fit 0 ["gagaku"] "0 ~ [~0] ~")
+  # n (choose [0,1])
+  # up (choose [0,0,5,12,11])
+  # resi 1
+  # lpf 1000
+  -- # theta (slow 5 line)
+  # amp 0.25
+  # ntag "sineharm"
+
+
+d1
+  $ (|* amp 0.9)
+  $ degradeBy 0.94
+  $ fast (choose [2.5,2,3,5])
+  $ s "~tableware"
+  # n 1
+  # speed (range 0.7 1.5 $ slow 7 rand)
+  # theta (range (-1) 1 rand)
+  # resi 1
+  # room 0.5
+  # amp (range 0.2 0.5 $ slow 3 rand)
+  # ntag "sineharm"
+
+
+
