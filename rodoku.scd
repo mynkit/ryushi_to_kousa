@@ -35,6 +35,61 @@ var vol = 0.0, n = 0, lpf=800, reverb=0.2;
 
 // 田中さとみさん: 01
 
+~kaionSine1 = Synth(\sine, [\amp, 0])
+
+~kaionSine1.set(\amp, 0.5,\freq, ~nToF.("e2", 440), \reverb, 0.9, \pan2Freq, 0.0, \parFreq, 0*3, \ice, 0.3, \vibratoDepth, 1, \vibratoFreq, 10)
+
+
+~kaionSine2 = Synth(\sine, [\amp, 0])
+
+~kaionSine2.set(\amp, 0.5,\freq, ~nToF.("b3", 440), \reverb, 0.9, \pan2Freq, 0.0, \parFreq, 0*0, \ice, 0.0, \vibratoDepth, 0.4, \vibratoFreq, 4)
+
+~kaionSine2.set(\amp, 0.5,\freq, ~nToF.("b3", 440), \reverb, 0.9, \pan2Freq, 1.5, \parFreq, 0*3, \ice, 0.4, \vibratoDepth, 0.4, \vibratoFreq, 4)
+
+
+~sine2 = Synth("sine", [\freq, ~nToF.("a3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0.04, \vibratoDepth, 0.8, \vibratoFreq, 20, \actave, 1, \reverb, 0.2, \out, 6]);
+~sine2.set(\amp, 0.6);
+~sine2.set(\reverb, 0.6);
+~sine2.set(\ice, 0.0);
+~sine2.set(\freq, ~nToF.("a3", 440));
+~sine2.set(\parFreq, 0.23);
+~sine2.set(\vibratoDepth, 0.8);
+~sine2.set(\vibratoFreq, 20);
+
+(
+~sine2.free;
+)
+
+
+(
+~kaionZure1 = Synth(\zureSc, [\amp, 0, \freq, 329.628*0.25, \hpf, 100, \lpf, 300, \detune, 1]);
+~kaionZure2 = Synth(\zureSc, [\amp, 0, \freq, 261.626*0.5, \hpf, 100, \lpf, 300, \detune, 0.1]);
+~kaionZure3 = Synth(\zureSc, [\amp, 0, \freq, 493.883*1, \hpf, 100, \lpf, 300, \detune, 0.03]);
+)
+
+(
+var vol = 0.6;
+~kaionZure1.set(\amp, 0.9*vol,  \freq, 329.628*(2**(0-12/12)), \detune, 0.05);
+~kaionZure2.set(\amp, 0.9*vol, \freq, 261.626*(2**(0-12/12)), \detune, 0.09);
+~kaionZure3.set(\amp, 0.9*vol, \freq, 493.883*(2**(-12/12)), \detune, 0.1);
+)
+(
+~kaionZure1.free;
+~kaionZure2.free;
+~kaionZure3.free;
+)
+
+
+// 「春本を捲る、テロリストの」〜
+
+~kaionSaw = Synth(\saw, [\amp, 0])
+~kaionSaw.set(\amp, 0,\freq, 164*0.25,\bpf, 164*0.5, \reverb, 0.9, \pan2Freq, 103*2.0, \parFreq, 110*2.0, \ice, 0.0, \vibratoDepth, 1, \vibratoFreq, 10)
+~kaionSaw.free;
+
+
+
+// 田中さとみさん: 03
+
 ~sine1= Synth("sine", [\freq, ~nToF.("b3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0, \vibratoDepth, 0.3, \vibratoFreq, 0.1, \actave, 1, \reverb, 0.5, \out, 6]);
 ~sine1.set(\amp, 0.6);
 ~sine1.set(\freq, ~nToF.("b3", 440));
@@ -45,22 +100,10 @@ var vol = 0.0, n = 0, lpf=800, reverb=0.2;
 ~sine1.set(\vibratoDepth, 0.6);
 ~sine1.set(\vibratoFreq, 15);
 
-~sine2 = Synth("sine", [\freq, ~nToF.("a3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0.04, \vibratoDepth, 0.3, \vibratoFreq, 0.23, \actave, 1, \reverb, 0.2, \out, 6]);
-~sine2.set(\amp, 0.6);
-~sine2.set(\reverb, 0.6);
-~sine2.set(\ice, 0.0);
-~sine2.set(\freq, ~nToF.("a3", 440));
-~sine2.set(\parFreq, 0.23);
-~sine2.set(\vibratoDepth, 0.8);
-~sine2.set(\vibratoFreq, 20);
 
 (
 ~sine1.free;
-~sine2.free;
 )
-
-// 田中さとみさん: 03
-
 
 
 
