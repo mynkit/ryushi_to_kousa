@@ -1,7 +1,7 @@
 // 栁川さん: 04
 
 ~leavesOfTreesEndless = Synth("leavesOfTreesEndless", [\amp, 0, \out, 0]);
-~leavesOfTreesEndless.set(\amp, 1.0, \out, 14);
+~leavesOfTreesEndless.set(\amp, 0.0, \out, 14);
 ~leavesOfTreesEndless.free;
 
 (
@@ -13,7 +13,7 @@ var n = 0;
 )
 
 (
-var vol = 0.3, n = 0, lpf=800, reverb=0.2;
+var vol = 0.0, n = 0, lpf=800, reverb=0.2;
 ~superhammondSc1.set(\amp, 0.6*vol, \freq, ~nToF.("b3", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.21, \lpf, lpf, \hpf, 100,\tremolorate, 6, \tremolodepth, 0.19, \pan, 0.2);
 ~superhammondSc2.set(\amp, 0.5*vol, \freq, ~nToF.("fs4", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.274, \lpf, lpf, \hpf, 100, \tremolorate, 4.7, \tremolodepth, 0.15, \pan, -1);
 ~superhammondSc3.set(\amp, 0.5*vol, \freq, ~nToF.("e5", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.154, \lpf, lpf, \hpf, 100, \tremolorate, 0.25, \tremolodepth, 0.5, \pan, 1);
@@ -28,9 +28,38 @@ var vol = 0.3, n = 0, lpf=800, reverb=0.2;
 )
 
 ~pinknoise = Synth("pinknoise", [\amp, 0, \hpf, 100, \lpf, 1000, \out, 14]);
-~pinknoise.set(\amp, 0.1, \hpf, 775, \lpf, 3500);
+~pinknoise.set(\amp, 0.0, \hpf, 775, \lpf, 3500);
 
 ~pinknoise.free
+
+
+// 田中さとみさん: 01
+
+~sine1= Synth("sine", [\freq, ~nToF.("b3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0, \vibratoDepth, 0.3, \vibratoFreq, 0.1, \actave, 1, \reverb, 0.5, \out, 6]);
+~sine1.set(\amp, 0.6);
+~sine1.set(\freq, ~nToF.("b3", 440));
+~sine1.set(\reverb, 0.5);
+~sine1.set(\ice, 0.0);
+~sine1.set(\parFreq, 0.05);
+~sine1.set(\pan2Freq, 0);
+~sine1.set(\vibratoDepth, 0.6);
+~sine1.set(\vibratoFreq, 15);
+
+~sine2 = Synth("sine", [\freq, ~nToF.("a3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0.04, \vibratoDepth, 0.3, \vibratoFreq, 0.23, \actave, 1, \reverb, 0.2, \out, 6]);
+~sine2.set(\amp, 0.6);
+~sine2.set(\reverb, 0.6);
+~sine2.set(\ice, 0.0);
+~sine2.set(\freq, ~nToF.("a3", 440));
+~sine2.set(\parFreq, 0.23);
+~sine2.set(\vibratoDepth, 0.8);
+~sine2.set(\vibratoFreq, 20);
+
+(
+~sine1.free;
+~sine2.free;
+)
+
+// 田中さとみさん: 03
 
 
 
