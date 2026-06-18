@@ -16,8 +16,8 @@ var n = 0;
 var vol = 0.0, n = 0, lpf=800, reverb=0.2;
 ~superhammondSc1.set(\amp, 0.6*vol, \freq, ~nToF.("b3", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.21, \lpf, lpf, \hpf, 100,\tremolorate, 6, \tremolodepth, 0.19, \pan, 0.2);
 ~superhammondSc2.set(\amp, 0.5*vol, \freq, ~nToF.("fs4", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.274, \lpf, lpf, \hpf, 100, \tremolorate, 4.7, \tremolodepth, 0.15, \pan, -1);
-~superhammondSc3.set(\amp, 0.5*vol, \freq, ~nToF.("e5", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.154, \lpf, lpf, \hpf, 100, \tremolorate, 0.25, \tremolodepth, 0.5, \pan, 1);
-~superhammondSc4.set(\amp, 0.3*vol, \freq, ~nToF.("a5", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.08, \lpf, lpf, \hpf, 100, \tremolorate, 0.4, \tremolodepth, 0.7, \pan, -0.2);
+~superhammondSc3.set(\amp, 0.5*vol, \freq, ~nToF.("e4", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.154, \lpf, lpf, \hpf, 100, \tremolorate, 0.25, \tremolodepth, 0.5, \pan, 1);
+~superhammondSc4.set(\amp, 0.3*vol, \freq, ~nToF.("a4", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.08, \lpf, lpf, \hpf, 100, \tremolorate, 0.4, \tremolodepth, 0.7, \pan, -0.2);
 )
 
 (
@@ -34,25 +34,25 @@ var vol = 0.0, n = 0, lpf=800, reverb=0.2;
 
 
 // 田中さとみさん: 01
+(
+~kaionSine1 = Synth(\sine, [\amp, 0]);
+~kaionSine2 = Synth(\sine, [\amp, 0]);
+)
 
-~kaionSine1 = Synth(\sine, [\amp, 0])
-
-~kaionSine1.set(\amp, 0.5,\freq, ~nToF.("e2", 440), \reverb, 0.9, \pan2Freq, 0.0, \parFreq, 0*3, \ice, 0.3, \vibratoDepth, 1, \vibratoFreq, 10)
+~kaionSine1.set(\amp, 0.3,\freq, ~nToF.("e2", 440), \reverb, 0.9, \pan2Freq, 0.0, \parFreq, 0*3, \ice, 0.3, \vibratoDepth, 1, \vibratoFreq, 10)
 
 
-~kaionSine2 = Synth(\sine, [\amp, 0])
+~kaionSine2.set(\amp, 0.3,\freq, ~nToF.("b3", 440), \reverb, 0.9, \pan2Freq, 0.0, \parFreq, 0*0, \ice, 0.0, \vibratoDepth, 0.0, \vibratoFreq, 4)
 
-~kaionSine2.set(\amp, 0.5,\freq, ~nToF.("b3", 440), \reverb, 0.9, \pan2Freq, 0.0, \parFreq, 0*0, \ice, 0.0, \vibratoDepth, 0.4, \vibratoFreq, 4)
-
-~kaionSine2.set(\amp, 0.5,\freq, ~nToF.("b3", 440), \reverb, 0.9, \pan2Freq, 1.5, \parFreq, 0*3, \ice, 0.4, \vibratoDepth, 0.4, \vibratoFreq, 4)
+~kaionSine2.set(\amp, 0.3,\freq, ~nToF.("b3", 440), \reverb, 0.9, \pan2Freq, 1.5, \parFreq, 0*3, \ice, 0.4, \vibratoDepth, 0.4, \vibratoFreq, 4)
 
 
 ~sine2 = Synth("sine", [\freq, ~nToF.("a3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0.04, \vibratoDepth, 0.8, \vibratoFreq, 20, \actave, 1, \reverb, 0.2, \out, 6]);
-~sine2.set(\amp, 0.6);
+~sine2.set(\amp, 0.2);
 ~sine2.set(\reverb, 0.6);
 ~sine2.set(\ice, 0.0);
 ~sine2.set(\freq, ~nToF.("a3", 440));
-~sine2.set(\parFreq, 0.23);
+~sine2.set(\parFreq, 0.03);
 ~sine2.set(\vibratoDepth, 0.8);
 ~sine2.set(\vibratoFreq, 20);
 
@@ -68,11 +68,19 @@ var vol = 0.0, n = 0, lpf=800, reverb=0.2;
 )
 
 (
-var vol = 0.6;
+var vol = 0.0;
 ~kaionZure1.set(\amp, 0.9*vol,  \freq, 329.628*(2**(0-12/12)), \detune, 0.05);
 ~kaionZure2.set(\amp, 0.9*vol, \freq, 261.626*(2**(0-12/12)), \detune, 0.09);
 ~kaionZure3.set(\amp, 0.9*vol, \freq, 493.883*(2**(-12/12)), \detune, 0.1);
 )
+
+(
+~kaionSine1.set(\amp, 0);
+~kaionSine2.set(\amp, 0);
+~sine2.set(\amp, 0);
+)
+
+
 (
 ~kaionZure1.free;
 ~kaionZure2.free;
@@ -90,19 +98,71 @@ var vol = 0.6;
 
 // 田中さとみさん: 03
 
-~sine1= Synth("sine", [\freq, ~nToF.("b3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0, \vibratoDepth, 0.3, \vibratoFreq, 0.1, \actave, 1, \reverb, 0.5, \out, 6]);
-~sine1.set(\amp, 0.6);
+~sine1= Synth("sine", [\freq, ~nToF.("b3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0, \vibratoDepth, 15, \vibratoFreq, 0.6, \actave, 1, \reverb, 0.5, \out, 6]);
+~sine1.set(\amp, 0.5);
 ~sine1.set(\freq, ~nToF.("b3", 440));
 ~sine1.set(\reverb, 0.5);
-~sine1.set(\ice, 0.0);
-~sine1.set(\parFreq, 0.05);
+~sine1.set(\ice, 0.6);
+~sine1.set(\parFreq, 1.2);
 ~sine1.set(\pan2Freq, 0);
 ~sine1.set(\vibratoDepth, 0.6);
 ~sine1.set(\vibratoFreq, 15);
 
+~sine2 = Synth("sine", [\freq, ~nToF.("a3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0.04, \vibratoDepth, 0.8, \vibratoFreq, 20, \actave, 1, \reverb, 0.5, \out, 6]);
+~sine2.set(\amp, 0.5);
+~sine2.set(\reverb, 0.5);
+~sine2.set(\ice, 0.6);
+~sine2.set(\freq, ~nToF.("a3", 440));
+~sine2.set(\parFreq, 1.31);
+~sine2.set(\vibratoDepth, 0.8);
+~sine2.set(\vibratoFreq, 20);
 
 (
 ~sine1.free;
+~sine2.free;
+)
+
+(
+~zureSc2_4 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((0-12)/12)), \hpf, 100, \lpf, 400, \detune, 1]);
+~zureSc2_5 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((9-12)/12)), \hpf, 100, \lpf, 400, \detune, 1]);
+~zureSc2_6 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((14-12)/12)), \hpf, 100, \lpf, 400, \detune, 1]);
+)
+
+(
+var vol1 = 0.0;
+~zureSc2_4.set(\amp, 1.0*vol1, \freq, 329.628*(2**((0-12)/12)), \detune, 0.47, \reverb, 2.0);
+~zureSc2_5.set(\amp, 1.0*vol1, \freq, 329.628*(2**((9-12)/12)), \detune, 0.62, \reverb, 2.0);
+~zureSc2_6.set(\amp, 1.0*vol1, \freq, 329.628*(2**((14-12)/12)), \detune, 0.78, \reverb, 2.0);
+)
+
+(
+~zureSc2_4.free;
+~zureSc2_5.free;
+~zureSc2_6.free;
+)
+
+
+// 「二人の幽闇霊(子)の首から上は霧がかかった山頂みたいで」〜
+
+~noiseHarmony = Synth(\noiseHarmony, [\amp, 0, \freq1, 99, \freq2, 144, \freq3, 183, \freq4, 260, \freq5, 335, \gain1, 40, \gain2, 40,\gain3, 30, \gain4, 3, \gain5, 3, \out, 12]);
+
+~noiseHarmony.set(\amp, 0, \freq1, 77, \freq2, 128, \freq3, 189, \freq4, 278, \freq5, 880, \gain1, 25, \gain2, 30,\gain3, 40, \gain4, 30, \gain5, 20);
+
+~noiseHarmony.set(\amp, 7);
+
+(
+~zureSc2_7 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((9+12)/12)), \hpf, 100, \lpf, 400, \detune, 1, \out, 8]);
+~zureSc2_8 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((9+12)/12)), \hpf, 100, \lpf, 400, \detune, 1, \out, 8]);
+~zureSc2_9 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((9+12)/12)), \hpf, 100, \lpf, 400, \detune, 1, \out, 8]);
+~zureSc2_10 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((9+12)/12)), \hpf, 100, \lpf, 400, \detune, 1, \out, 8]);
+)
+
+(
+var vol1 = 1.5;
+~zureSc2_7.set(\amp, 0.0*vol1, \freq, 329.628*(2**((11.0)/12)), \detune, 1.007, \lpf, 900, \reverb, 1.0);
+~zureSc2_8.set(\amp, 1.0*vol1, \freq, 329.628*(2**((0-12)/12)), \detune, 0.012, \lpf, 500, \reverb, 1.0);
+~zureSc2_9.set(\amp, 1.0*vol1, \freq, 329.628*(2**((-3-12)/12)), \detune, 0.218, \lpf, 500, \reverb, 1.0);
+~zureSc2_10.set(\amp, 1.3*vol1, \freq, 329.628*(2**((-5-12)/12)), \detune, 0.118, \lpf, 600, \reverb, 1.0);
 )
 
 
