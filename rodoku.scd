@@ -1,4 +1,4 @@
-// 栁川さん: 04
+// @@ 栁川さん: 04
 
 ~leavesOfTreesEndless = Synth("leavesOfTreesEndless", [\amp, 0, \out, 0]);
 ~leavesOfTreesEndless.set(\amp, 0.0, \out, 14);
@@ -33,7 +33,7 @@ var vol = 0.0, n = 0, lpf=800, reverb=0.2;
 ~pinknoise.free
 
 
-// 田中さとみさん: 01
+// @@ 田中さとみさん: 01
 (
 ~kaionSine1 = Synth(\sine, [\amp, 0]);
 ~kaionSine2 = Synth(\sine, [\amp, 0]);
@@ -96,7 +96,8 @@ var vol = 0.0;
 
 
 
-// 田中さとみさん: 03
+// @@ 田中さとみさん: 03
+// 振り子の音だす
 
 ~sine1= Synth("sine", [\freq, ~nToF.("b3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0, \vibratoDepth, 15, \vibratoFreq, 0.6, \actave, 1, \reverb, 0.5, \out, 6]);
 ~sine1.set(\amp, 0.5);
@@ -164,6 +165,57 @@ var vol1 = 1.5;
 ~zureSc2_9.set(\amp, 1.0*vol1, \freq, 329.628*(2**((-3-12)/12)), \detune, 0.218, \lpf, 500, \reverb, 1.0);
 ~zureSc2_10.set(\amp, 1.3*vol1, \freq, 329.628*(2**((-5-12)/12)), \detune, 0.118, \lpf, 600, \reverb, 1.0);
 )
+
+// @@ 紫衣さん: 01
+// 細胞の音だす
+
+// cs: 277.183
+// d: 293.665
+// e: 329.628
+// a: 440.000
+// b: 493.883
+~drone1 = Synth(\drone, [\freq, ~nToF.("a2", 440), \amp, 0.0, \numHarm, 5, \reverb, 0.9, \lpf, 2000, \out, 4]);
+~drone1.set(\amp, 0.0);
+~drone1.set(\freq, ~nToF.("a2", 440));
+~drone1.set(\parFreq, 0.5);
+~drone1.set(\pan2Freq, 0.1);
+~drone1.set(\numHarm, 8);
+~drone1.set(\lpf, 3000);
+~drone1.set(\reverb, 0.9);
+~drone1.set(\vibratoFreq, 3, \vibratoDepth, 0.05);
+
+// cs: 277.183
+// d: 293.665
+// e: 329.628
+// a: 440.000
+// b: 493.883
+~drone2 = Synth(\drone, [\freq, ~nToF.("cs2", 440), \amp, 0.0, \numHarm, 5, \reverb, 0.8, \lpf, 2000, \out, 4]);
+~drone2.set(\amp, 0.0);
+~drone2.set(\freq, ~nToF.("cs2", 440));
+~drone2.set(\parFreq, 0.2);
+~drone2.set(\pan2Freq, 0.1);
+~drone2.set(\numHarm, 8);
+~drone2.set(\lpf, 3000);
+~drone2.set(\reverb, 0.9);
+~drone2.set(\vibratoFreq, 1, \vibratoDepth, 0.1);
+
+(
+~drone1.free;
+~drone2.free;
+)
+
+// @@ 紫衣さん: 03
+
+
+
+
+// @@ 白鳥さん: 01
+
+
+// @@ 白鳥さん: 02
+
+
+// @@ 白鳥さん: 05
 
 
 
@@ -344,11 +396,11 @@ var vol = 0.0;
 // a: 440.000
 // b: 493.883
 ~drone1 = Synth(\drone, [\freq, ~nToF.("a2", 440), \amp, 0.0, \numHarm, 5, \reverb, 0.9, \lpf, 2000, \out, 4]);
-~drone1.set(\amp, 0.0);
+~drone1.set(\amp, 0.8);
 ~drone1.set(\freq, ~nToF.("a2", 440));
 ~drone1.set(\parFreq, 0.5);
 ~drone1.set(\pan2Freq, 0.1);
-~drone1.set(\numHarm, 5);
+~drone1.set(\numHarm, 8);
 ~drone1.set(\lpf, 2000);
 ~drone1.set(\reverb, 0.9);
 ~drone1.set(\vibratoFreq, 3, \vibratoDepth, 0.05);
@@ -359,11 +411,11 @@ var vol = 0.0;
 // a: 440.000
 // b: 493.883
 ~drone2 = Synth(\drone, [\freq, ~nToF.("cs3", 440), \amp, 0.0, \numHarm, 5, \reverb, 0.8, \lpf, 2000, \out, 4]);
-~drone2.set(\amp, 0.0);
+~drone2.set(\amp, 0.9);
 ~drone2.set(\freq, ~nToF.("cs3", 440));
 ~drone2.set(\parFreq, 0.2);
 ~drone2.set(\pan2Freq, 0.1);
-~drone2.set(\numHarm, 4);
+~drone2.set(\numHarm, 8);
 ~drone2.set(\lpf, 3000);
 ~drone2.set(\reverb, 0.9);
 ~drone2.set(\vibratoFreq, 1, \vibratoDepth, 0.1);
@@ -424,7 +476,7 @@ var vol = 0.0;
 ~blipHarmonics1.set(\reverb, 0.4);
 ~blipHarmonics1.set(\vibratoFreq, 0.8, \vibratoDepth, 0.6);
 (
-var n = -7;
+var n = -5;
 ~blipHarmonics1.set(\amp, 0.0, \freq, 1*55*(2**(n/12)), \f1, 617*(2**(n/12)), \f2, 920*(2**(n/12)), \f3, 2000*(2**(n/12)), \lpf, 110);
 )
 ~blipHarmonics1.free;
