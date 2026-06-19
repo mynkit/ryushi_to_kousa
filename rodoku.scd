@@ -32,6 +32,16 @@ var vol = 0.0, n = 0, lpf=800, reverb=0.2;
 
 ~pinknoise.free
 
+// 全音量0
+(
+~leavesOfTreesEndless.set(\amp, 0);
+~superhammondSc1.set(\amp, 0);
+~superhammondSc2.set(\amp, 0);
+~superhammondSc3.set(\amp, 0);
+~superhammondSc4.set(\amp, 0);
+~pinknoise.set(\amp, 0);
+)
+
 
 // @@ 田中さとみさん: 01
 (
@@ -48,9 +58,9 @@ var vol = 0.0, n = 0, lpf=800, reverb=0.2;
 
 
 ~sine2 = Synth("sine", [\freq, ~nToF.("a3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0.04, \vibratoDepth, 0.8, \vibratoFreq, 20, \actave, 1, \reverb, 0.2, \out, 6]);
-~sine2.set(\amp, 0.2);
+~sine2.set(\amp, 0.3);
 ~sine2.set(\reverb, 0.6);
-~sine2.set(\ice, 0.0);
+~sine2.set(\ice, 0.1);
 ~sine2.set(\freq, ~nToF.("a3", 440));
 ~sine2.set(\parFreq, 0.03);
 ~sine2.set(\vibratoDepth, 0.8);
@@ -94,13 +104,23 @@ var vol = 0.0;
 ~kaionSaw.set(\amp, 0,\freq, 164*0.25,\bpf, 164*0.5, \reverb, 0.9, \pan2Freq, 103*2.0, \parFreq, 110*2.0, \ice, 0.0, \vibratoDepth, 1, \vibratoFreq, 10)
 ~kaionSaw.free;
 
+// 全音量0
+(
+~kaionSine1.set(\amp, 0);
+~kaionSine2.set(\amp, 0);
+~sine2.set(\amp, 0);
+~kaionSaw.set(\amp, 0);
+~kaionZure1.set(\amp, 0);
+~kaionZure2.set(\amp, 0);
+~kaionZure3.set(\amp, 0);
+)
 
 
 // @@ 田中さとみさん: 03
 // 振り子の音だす
 
-~sine1= Synth("sine", [\freq, ~nToF.("b3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0, \vibratoDepth, 15, \vibratoFreq, 0.6, \actave, 1, \reverb, 0.5, \out, 6]);
-~sine1.set(\amp, 0.5);
+~sine1= Synth("sine", [\freq, ~nToF.("b3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0, \vibratoDepth, 0.6, \vibratoFreq, 15, \actave, 1, \reverb, 0.5, \out, 6]);
+~sine1.set(\amp, 0.0);
 ~sine1.set(\freq, ~nToF.("b3", 440));
 ~sine1.set(\reverb, 0.5);
 ~sine1.set(\ice, 0.6);
@@ -110,7 +130,7 @@ var vol = 0.0;
 ~sine1.set(\vibratoFreq, 15);
 
 ~sine2 = Synth("sine", [\freq, ~nToF.("a3", 440), \amp, 0, \parFreq, 0, \pan2Freq, 0.04, \vibratoDepth, 0.8, \vibratoFreq, 20, \actave, 1, \reverb, 0.5, \out, 6]);
-~sine2.set(\amp, 0.5);
+~sine2.set(\amp, 0.0);
 ~sine2.set(\reverb, 0.5);
 ~sine2.set(\ice, 0.6);
 ~sine2.set(\freq, ~nToF.("a3", 440));
@@ -149,7 +169,7 @@ var vol1 = 0.0;
 
 ~noiseHarmony.set(\amp, 0, \freq1, 77, \freq2, 128, \freq3, 189, \freq4, 278, \freq5, 880, \gain1, 25, \gain2, 30,\gain3, 40, \gain4, 30, \gain5, 20);
 
-~noiseHarmony.set(\amp, 7);
+~noiseHarmony.set(\amp, 0);
 
 (
 ~zureSc2_7 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((9+12)/12)), \hpf, 100, \lpf, 400, \detune, 1, \out, 8]);
@@ -159,45 +179,73 @@ var vol1 = 0.0;
 )
 
 (
-var vol1 = 1.5;
+var vol1 = 0.0;
 ~zureSc2_7.set(\amp, 0.0*vol1, \freq, 329.628*(2**((11.0)/12)), \detune, 1.007, \lpf, 900, \reverb, 1.0);
 ~zureSc2_8.set(\amp, 1.0*vol1, \freq, 329.628*(2**((0-12)/12)), \detune, 0.012, \lpf, 500, \reverb, 1.0);
 ~zureSc2_9.set(\amp, 1.0*vol1, \freq, 329.628*(2**((-3-12)/12)), \detune, 0.218, \lpf, 500, \reverb, 1.0);
 ~zureSc2_10.set(\amp, 1.3*vol1, \freq, 329.628*(2**((-5-12)/12)), \detune, 0.118, \lpf, 600, \reverb, 1.0);
 )
 
+// 全音量0
+(
+~sine1.set(\amp, 0);
+~sine2.set(\amp, 0);
+~zureSc2_4.set(\amp, 0);
+~zureSc2_5.set(\amp, 0);
+~zureSc2_6.set(\amp, 0);
+~noiseHarmony.set(\amp, 0);
+~kaionSaw.set(\amp, 0);
+~zureSc2_7.set(\amp, 0);
+~zureSc2_8.set(\amp, 0);
+~zureSc2_9.set(\amp, 0);
+~zureSc2_10.set(\amp, 0);
+)
+
 // @@ 紫衣さん: 01
 // 細胞の音だす
+// ~noiseHarmony = Synth(\noiseHarmony, [\amp, 0, \freq1, 99, \freq2, 144, \freq3, 183, \freq4, 260, \freq5, 335, \gain1, 40, \gain2, 40,\gain3, 30, \gain4, 3, \gain5, 3, \out, 12]);
+
+~noiseHarmony.set(\amp, 3);
+
+~noiseHarmony.set(\freq1, 99, \freq2, 144, \freq3, 183, \freq4, 260, \freq5, 335, \gain1, 40, \gain2, 40,\gain3, 30, \gain4, 3, \gain5, 0);
+
 
 // cs: 277.183
 // d: 293.665
 // e: 329.628
 // a: 440.000
 // b: 493.883
-~drone1 = Synth(\drone, [\freq, ~nToF.("a2", 440), \amp, 0.0, \numHarm, 5, \reverb, 0.9, \lpf, 2000, \out, 4]);
-~drone1.set(\amp, 0.0);
+~drone1 = Synth(\drone, [\freq, ~nToF.("a2", 440), \amp, 0.0, \numHarm, 2, \reverb, 0.9, \lpf, 2000, \out, 4]);
+~drone1.set(\amp, 3.0);
 ~drone1.set(\freq, ~nToF.("a2", 440));
 ~drone1.set(\parFreq, 0.5);
 ~drone1.set(\pan2Freq, 0.1);
-~drone1.set(\numHarm, 8);
+~drone1.set(\numHarm, 2);
 ~drone1.set(\lpf, 3000);
 ~drone1.set(\reverb, 0.9);
-~drone1.set(\vibratoFreq, 3, \vibratoDepth, 0.05);
+~drone1.set(\vibratoFreq, 30, \vibratoDepth, 0.05);
 
 // cs: 277.183
 // d: 293.665
 // e: 329.628
 // a: 440.000
 // b: 493.883
-~drone2 = Synth(\drone, [\freq, ~nToF.("cs2", 440), \amp, 0.0, \numHarm, 5, \reverb, 0.8, \lpf, 2000, \out, 4]);
-~drone2.set(\amp, 0.0);
-~drone2.set(\freq, ~nToF.("cs2", 440));
+~drone2 = Synth(\drone, [\freq, ~nToF.("cs2", 440), \amp, 0.0, \numHarm, 2, \reverb, 0.8, \lpf, 2000, \out, 4]);
+~drone2.set(\amp, 3.0);
+~drone2.set(\freq, ~nToFi.("cs2", 440));
 ~drone2.set(\parFreq, 0.2);
 ~drone2.set(\pan2Freq, 0.1);
-~drone2.set(\numHarm, 8);
+~drone2.set(\numHarm, 2);
 ~drone2.set(\lpf, 3000);
 ~drone2.set(\reverb, 0.9);
-~drone2.set(\vibratoFreq, 1, \vibratoDepth, 0.1);
+~drone2.set(\vibratoFreq, 10, \vibratoDepth, 0.1);
+
+
+// 全音量0
+(
+~drone1.set(\amp, 0);
+~drone2.set(\amp, 0);
+)
 
 (
 ~drone1.free;
