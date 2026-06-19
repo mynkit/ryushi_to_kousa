@@ -203,11 +203,11 @@ var vol1 = 0.0;
 
 // @@ 紫衣さん: 01
 // 細胞の音だす
-// ~noiseHarmony = Synth(\noiseHarmony, [\amp, 0, \freq1, 99, \freq2, 144, \freq3, 183, \freq4, 260, \freq5, 335, \gain1, 40, \gain2, 40,\gain3, 30, \gain4, 3, \gain5, 3, \out, 12]);
+~noiseHarmony = Synth(\noiseHarmony, [\amp, 0, \freq1, 99*1.1, \freq2, 144*1.1, \freq3, 183*1.1, \freq4, 260*1.1, \freq5, 335*1.1, \gain1, 40, \gain2, 40,\gain3, 30, \gain4, 3, \gain5, 3, \out, 12]);
 
 ~noiseHarmony.set(\amp, 3);
 
-~noiseHarmony.set(\freq1, 99, \freq2, 144, \freq3, 183, \freq4, 260, \freq5, 335, \gain1, 40, \gain2, 40,\gain3, 30, \gain4, 3, \gain5, 0);
+~noiseHarmony.set(\freq1, 99*1.1, \freq2, 144*1.1, \freq3, 183*1.1, \freq4, 260*1.1, \freq5, 335*1.1, \gain1, 40, \gain2, 40,\gain3, 30, \gain4, 3, \gain5, 0);
 
 
 // cs: 277.183
