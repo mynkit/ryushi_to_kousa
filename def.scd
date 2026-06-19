@@ -1,3 +1,14 @@
+// 完全停止
+(
+"Stopping all SuperCollider...".postln;
+if(~orbitMonitorRoutine.notNil) { ~orbitMonitorRoutine.stop; ~orbitMonitorRoutine = nil; };
+if(~orbitWindow.notNil) { ~orbitWindow.close; ~orbitWindow = nil; };
+SuperDirtMod.stop;
+~dirt.stop;
+~dirt.free;
+Server.killAll;
+)
+
 // 一旦停止するとき
 (
 "Stopping SuperDirt and SuperDirtMod...".postln;
