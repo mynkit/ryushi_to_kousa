@@ -1,7 +1,7 @@
 // @@ 栁川さん: 04
 
 ~leavesOfTreesEndless = Synth("leavesOfTreesEndless", [\amp, 0, \out, 0]);
-~leavesOfTreesEndless.set(\amp, 0.0, \out, 14);
+~leavesOfTreesEndless.set(\amp, 0.3, \out, 14);
 ~leavesOfTreesEndless.free;
 
 (
@@ -28,9 +28,10 @@ var vol = 0.2, n = 0, lpf=800, reverb=0.2;
 )
 
 ~pinknoise = Synth("pinknoise", [\amp, 0, \hpf, 100, \lpf, 1000, \out, 14]);
-~pinknoise.set(\amp, 0.0, \hpf, 775, \lpf, 3500);
+~pinknoise.set(\amp, 0.05, \hpf, 775, \lpf, 3500);
 
-~pinknoise.free
+~forest = Synth("forest", [\amp, 0, \out, 14]);
+~forest.set(\amp, 0.1, \lpf, 3000, \hpf, 1500);
 
 // 全音量0
 (
@@ -40,6 +41,7 @@ var vol = 0.2, n = 0, lpf=800, reverb=0.2;
 ~superhammondSc3.set(\amp, 0);
 ~superhammondSc4.set(\amp, 0);
 ~pinknoise.set(\amp, 0);
+~forest.set(\amp, 0);
 )
 
 
