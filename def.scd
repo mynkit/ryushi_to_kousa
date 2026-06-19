@@ -1,13 +1,5 @@
-// 完全停止
-(
-"Stopping all SuperCollider...".postln;
-if(~orbitMonitorRoutine.notNil) { ~orbitMonitorRoutine.stop; ~orbitMonitorRoutine = nil; };
-if(~orbitWindow.notNil) { ~orbitWindow.close; ~orbitWindow = nil; };
-SuperDirtMod.stop;
-~dirt.stop;
-~dirt.free;
-Server.killAll;
-)
+// 完全リセット（起動時と同じ状態に戻す）
+thisProcess.recompile;
 
 // 一旦停止するとき
 (
