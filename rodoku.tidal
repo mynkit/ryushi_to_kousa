@@ -26,7 +26,7 @@ do
     bubbleSizeMin = 20
     bubbleSizeMax = 80
   d7
-    $ (|* amp 0.06)
+    $ (|* amp 0.09)
     $ fast (range 1 30 $ fast 5 rand)
     -- $ (|* sustain (range 1.2 0.9 $ slow 317 rand*rand))
     $ (|* freq (range 3.5 2.6 $ rand**4))
@@ -42,10 +42,10 @@ do
     # ntag "yanagawa04"
 
 
--- 「微風のあと」〜
+-- 「電信柱から」〜
 
 d2
-  $ (|* amp 0.11)
+  $ (|* amp 0.10)
   $ mix ((|+ n 12).(|* amp 0.7))
   $ slow 1.5
   $ s "~ SinOscSynthBend ~ ~"
@@ -60,11 +60,11 @@ d2
   # amp 0.2
   # ntag "yanagawa04"
 
--- 「蛇口から溢れたような」〜
+-- 「木漏れ日の源流」〜
 
 d7
   -- 水の流れ
-  $ (|* amp 0.1)
+  $ (|* amp 0.2)
   $ (|* gain (range 0.6 1 (fast 1.0 rand)))
   $ (|* gain (range 0 0.27 (fast 15 rand)))
   $ density (range 100 1000 $ slow (range 2.1 3.1 $ slow 5.5 rand) sine)
@@ -84,7 +84,7 @@ d7
 
 d9
   -- rotate
-  $ (|* amp 0.2)
+  $ (|* amp 0.1)
   $ sometimesBy 0.1 (degradeBy 1)
   -- $ sometimesBy 0.02 ((ply (choose [4,8,10])).(|* amp 0.6))
   $ (|* amp (range 1 0.8 rand))
@@ -205,6 +205,16 @@ d4
   # ntag "satomi01"
 
 
+-- 「土の中で超音波を発して」〜
+d6
+  -- $ degradeBy 0.1
+  $ s "~ ~ ~ [~ superfm/4]"
+  # n "<fs9>"
+  # sustain 0.16
+  # room 0.9 # sz 0.97 # dry 2.5
+  # amp 0.004
+  # ntag "satomi01"
+
 d6
   $ degradeBy 0.1
   $ s "~ coffee/3 ~ ~"
@@ -277,26 +287,6 @@ d8
   # pingpong 0.3 # pingpongt (3/8) # pingpongfb 0.8
   # room 0.9 # sz 0.99
   # amp (range 0.15 0.2 $ slow 9 rand)
-  # ntag "satomi01"
-
-
-d2
-  $ (|* amp 0.9)
-  $ slow 2
-  $ s "superhammondBend/2"
-  # n "<<b3,a4,d5,e4> ~ <b4,a2,a3,d5,e4> ~>"
-  # sustain 0.24
-  # pF "vibrato" 0.5 # pF "vrate" (range 1.0 4.0 $ fast 1.1 rand)
-  # theta 0.0
-  # shape 0.05
-  -- # slide 1.4 # sustainpedal 0.5
-  # hpf 120 # hpq 0.0
-  # lpf 4000
-  -- # scReverb 0.9 # ice 0.5
-  # room 0.9 # sz 0.9 # dry 2.5
-  # tremolodepth 0.2 # tremolorate (range 5 1 $ fast 2.1 rand)
-  # pingpong 0.5 # pingpongt (1/32) # pingpongfb 0.9
-  # amp 0.6
   # ntag "satomi01"
 
 
@@ -423,44 +413,278 @@ d1
   -- $ slow 2
   $ degradeBy 0.8
   $ s "cucumber cucumber cucumber/3"
-  # up (-1)
+  # n (choose [0,1,2])
+  # up (choose [(-7),(-12),(-10),(-2)])
   # lpf 2000
-  # amp 0.1
+  # amp 0.06
   # hpf 50 # hpq 0.3
   # resi 1
-  -- # room 0.9 # sz 0.9
-  # scReverb 0.99 # ice 0.6
+  # room 0.9 # sz 0.97
   # ntag "shii01"
 
 
 d2
-  $ degradeBy 0.4
-  $ s " ~ [~ door/4]"
-  # amp 0.15
+  $ degradeBy 0.8
+  $ s " ~ [~ door/1]"
+  # amp 0.1
   # n (choose [1,2])
-  # speed (range 1 3 $ slow 9 rand)
-  # lpf 1500
+  # speed (range 1.5 3 $ slow 9 rand)
+  # lpf 1000
   # room 0.9 # sz 0.4 # dry 2.5
   -- # delay 0.7 # delayt (1/16) # delayfb 0.8 # lock 1
   # resi 1
   # theta (range (-0.2) 0.2 rand)
   # ntag "shii01"
 
+d3
+  $ (|* amp 0.9)
+  $ degradeBy 0.3
+  $ fast (choose [2.5,2,3,5])
+  $ s "~tableware"
+  # n 1
+  # speed (range 0.3 0.8 $ slow 7 rand)
+  # theta (range (-1) 1 rand)
+  # lpf 2000
+  # room 0.5
+  # amp (range 0.1 0.4 $ slow 3 rand)
+  # ntag "shii01"
+
 
 -- @@ 紫衣さん: 03 夢十夜 7:10
+
+d4
+  $ slow 12
+  $ mix ((|- up 12).(|* amp 0.3))
+  $ s "gagaku"
+  # room 0.9 # sz 0.98 # dry 0
+  # n "<0,1>"
+  # up "<-9,-4>"
+  # theta 0
+  # resi 1
+  # lpf 1000
+  # hpf 60 # hpq 0.2
+  # amp 0.04
+  # ntag "shii03"
+
+
+d9
+  $ fast (range 32 64 rand)
+  $ (|* amp 0.7)
+  $ degradeBy 0.92
+  $ s "branch"
+  # sustain 0.07
+  # theta (range (-1) 1 $ slow 3 rand)
+  # resi (range 0.8 0.9 $ slow 5 rand)
+  # lpf 4000
+  # amp (range 0.0 0.10 $ slow 7 rand)
+  # ntag "shii03"
+
+
+d1
+  $ slow 2
+  $ fast 1.5
+  -- $ degradeBy 0.4
+  -- $ someCyclesBy 1 ((# pingpong 0.6).(# pingpongt (3/8)).(# pingpongfb 0.9))
+  $ s "~ guitar_async:20/32"
+  # up 11
+  -- # scReverb 0.9
+  # resi 1
+  # room 0.95 # sz 0.98 # dry 3
+  # lpf 1100
+  # theta (0)
+  # amp 0.3
+  # ntag "shii03"
+
+
+d2
+  $ (|* amp 1.0)
+  $ slow 2
+  $ mix ((|- n 12).(|* amp 0.7))
+  $ when ((/=2).(flip mod 8)) (degradeBy 1)
+  $ s (fit 0 ["simpleSineWave"] "[0 [~[~0]]] ~ ~ ~")
+  # n "[fs5 b5] ~ ~ ~"
+  # amp 0.20
+  # sustain 1
+  # resi 1
+  # theta 0
+  # room 0.9 # sz 0.98
+  # ntag "shii03"
+
+
+d5
+  $ (|+ n (12))
+  $ slow 2
+  -- $ mix ((|- n 12).(|* amp 0.7))
+  $ when ((/=2).(flip mod 8)) (degradeBy 1)
+  $ s "~ ~ ~ superfm"
+  # n "<e5,a6>"
+  # sustain 0.1
+  # amp 0.02
+  # room 0.9 # sz 0.97 # dry 2
+  # hpf 600 # lpf 2000
+  # theta (range (-0.1) 0.1 $ fast 7 rand)
+  # ntag "shii03"
+
+
+d7
+  -- $ slow 2
+  -- $ (|- n 12)
+  $ (|* amp 2.5)
+  $ when ((/=3).(flip mod 4)) (degradeBy 1)
+  $ s "[~padDirt]"
+  # n "<<a4,fs6> <cs6>>"
+  # amp 0.1
+  # hpf 170 # lpf 2000
+  # pF "modspeed" 5000
+  # tremolodepth 0.8 # tremolorate (range 2 6 rand)
+  # resi 1
+  # scReverb 0.9 # ice 0.3
+  # sustain 20
+  # pingpong 0.9 # pingpongt (3/8) # pingpongfb 0.9
+  # ntag "shii03"
+
+
+once
+  $ s "cucumber"
+  # resi 1
+  -- # church 1
+  -- # room 0.8 # sz 0.1
+  # amp 0.1
+  # ntag "shii03"
+  # orbit 1
+
+
 
 
 
 -- @@ 白鳥さん: 01 パノラマ島へ帰る 0:30
 
+d1
+  $ s "vibratoSineWave"
+  # n "fs5"
+  # vibratoFreq 20
+  # vibratoDepth 0.9
+  # sustain 0.5
+  # octaveMix 0.1
+  # room 0.9 # sz 0.2 # dry 2.0
+  # amp 0.3
+  # ntag "shiratori01"
+
+d2
+  $ fast 1.2
+  $ s "~ vibratoSineWave"
+  # n "e4"
+  # vibratoFreq 20
+  # vibratoDepth 0.9
+  # sustain 0.5
+  # octaveMix 0.5
+  # room 0.9 # sz 0.2 # dry 2.0
+  # amp 0.2
+  # ntag "shiratori01"
+
 
 
 -- @@ 白鳥さん: 02 雷鳴語による新しい音楽 4:15
+
+d1
+  $ (|* amp 0.3)
+  $ fast (range 1 0.2 rand)
+  $ someCyclesBy 0.2 (degradeBy 1)
+  $ sometimesBy 0.2 (degradeBy 1) $ (|* amp (range 0.9 1 rand))
+  $ (|* gain "[1 0.2]*5")
+  $ (|* gain 0.9)
+  $ s "nailClapper*20"
+  # n "<15,20>"
+  # theta (range (0.1) (0.15) rand*rand) # dis 1
+  # sustain (range 0.25 0.3 rand*rand)
+  # room 0.8 # sz 0.5 # dry 2
+  # resi 1
+  # lpf (range 2000 1500 rand*rand)
+  # hpf 300
+  # ntag "shiratori02"
+
+d3
+  $ slow 2
+  $ mix ((|+ n 5).(|* amp 0.6))
+  $ s "[~ vibratoSineWave/3] [~ vibratoSineWave/3]"
+  # vibratoDepth 0.5 # vibratoFreq 2
+  # room 0.9 # sz 0.98
+  # resi 1
+  # sustain 7
+  # n "<cs5,fs5> <a4,e5>"
+  # octaveMix 0.5
+  # amp 0.1
+  # ntag "shiratori02"
+
+d4
+  $ slow 8
+  $ mix ((|- up 12).(|* amp 0.3))
+  $ s "gagaku"
+  # room 0.9 # sz 0.9
+  # n "<0,1>"
+  # up "<-9,-4>"
+  # theta 0
+  # lpf 1000
+  # hpf 60 # hpq 0.2
+  # amp 0.09
+  # ntag "shiratori02"
+
+d5
+  $ fast 1.5
+  $ (|* amp 0.3)
+  $ (mix ((|+ up (-5)).(|* amp 0.8)))
+  $ someCyclesBy 0.3 (degradeBy 1)
+  $ someCyclesBy 0.4 (|- up (choose [2,5]))
+  -- $ someCyclesBy 0.1 (|- up 12)
+  $ mix ((|* amp (range 0 1 rand)).((range 0.042 0.101 rand) ~>).(|+ n (range 1 5 rand)))
+  $ mix ((|* amp (range 0 1 rand)).((range 0.145 0.232 $ slow 5 rand) ~>).(|+ n (range 4 8 rand)))
+  -- $ mix (((range 0.03 0.058 $ slow 5 rand) ~>).(|+ n (range 1 5 rand)))
+  $ s "guitar_async"
+  # amp (range 0.15 0.2 $ slow 5 rand)
+  -- # room 0.0 # sz 0.0
+  # resi 1
+  -- # church 1
+  # hpf 80 # hpq 0.4
+  # room 0.9 # sz 0.96 # dry 2.1
+  # lpf 1800
+  -- # scReverb 1 # ice 0
+  # n (range 0 8 $ slow 4 rand)
+  # theta (range (-0.15) 0.15 $ slow 11 rand)
+  # ntag "shiratori02"
+
+
+d6
+  $ degradeBy 0.85
+  $ s "furin*5"
+  # resi 1
+  -- # lpf 4000
+  # up (choose [-2, -5])
+  # room 0.98 # sz 0.99 # dry 3
+  # theta (range (-0.2) 0.2 $ slow 13 rand)
+  # amp 0.01
+  # ntag "shiratori02"
+
 
 
 
 -- @@ 白鳥さん: 05 小海線 3:15
 
+d7
+  -- 水の流れ
+  $ (|* amp 0.12)
+  $ (|* gain (range 0.6 1 (fast 1.0 rand)))
+  $ (|* gain (range 0 0.27 (fast 15 rand)))
+  $ density (range 200 1000 $ slow (range 2.1 3.1 $ slow 5.5 rand) sine)
+  $ s "SinOscSynthBend"
+  # sustain (range 0.008 0.08 (rand))
+  # accelerate (range 2 5 (rand))
+  # n (range 54 (11) (rand))
+  # resi 0.5
+  # lpf 3000
+  # theta (range (-0.1) (0.1) (fast 1.5 rand))
+  # amp 0.6
+  # gain 2.0
+  # ntag "shiratori05"
 
 -- =================================================
 
