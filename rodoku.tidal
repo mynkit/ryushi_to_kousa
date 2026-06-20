@@ -73,7 +73,7 @@ d2
 -- 「目と霜の膜表と」〜
 
 d9
-  $ (|* amp 0.7)
+  $ (|* amp 0.8)
   $ sometimesBy 0.4 (mix ((rev).(0.25 ~>)))
   -- $ s (fit 0 ["simpleSineWave"] "~ [~0] ~ [[~0]0 ~ ~]")
   $ s (fit 0 ["simpleSineWave"] "0? [~0] ~ [[~0]0 ~ 0?]")
@@ -120,7 +120,7 @@ d3
   # ntag "nail_y04"
 
 d6
-  $ (|* amp 0.85)
+  $ (|* amp 0.8)
   $ fast (2/4)
   $ slow (4)
   $ sometimesBy 0.2 ((1/16)~>)
@@ -144,7 +144,7 @@ d6
 
 d7
   -- 水の流れ
-  $ (|* amp 0.2)
+  $ (|* amp 0.1)
   $ (|* gain (range 0.6 1 (fast 1.0 rand)))
   $ (|* gain (range 0 0.27 (fast 15 rand)))
   $ density (range 100 1000 $ slow (range 2.1 3.1 $ slow 5.5 rand) sine)
@@ -173,7 +173,7 @@ d5
 d4
   $ someCyclesBy 0.4 (degradeBy 1)
   $ whenmod 16 12 (|+ up (7))
-  $ (0.025 <~)
+  $ sometimesBy 0.3 (0.025 <~)
   $ slow 2
   $ while "f t" (# end 0.15)
   $ sometimesBy 0.1 ((ply "[1 1 [16 2 12 2] 1] [1]").(|* amp "0.7 1"))
@@ -188,6 +188,14 @@ d4
   # resi 1
   # ntag "AM7_y04"
 
+d13
+  $ slow 3
+  $ s "~ [~tableware] ~ ~"
+  # n (choose [2,7])
+  # amp 0.3
+  # ntag "dish_y04"
+
+silence' 13
 
 -- 「転　転がる」〜
 
