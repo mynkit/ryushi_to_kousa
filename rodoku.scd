@@ -13,7 +13,7 @@ var n = 0;
 )
 
 (
-var vol = 0.2, n = 0, lpf=800, reverb=0.2;
+var vol = 0.4, n = 0, lpf=800, reverb=0.2;
 ~superhammondSc1.set(\amp, 0.6*vol, \freq, ~nToF.("b3", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.21, \lpf, lpf, \hpf, 100,\tremolorate, 6, \tremolodepth, 0.19, \pan, 0.2);
 ~superhammondSc2.set(\amp, 0.5*vol, \freq, ~nToF.("fs4", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.274, \lpf, lpf, \hpf, 100, \tremolorate, 4.7, \tremolodepth, 0.15, \pan, -1);
 ~superhammondSc3.set(\amp, 0.5*vol, \freq, ~nToF.("e4", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.154, \lpf, lpf, \hpf, 100, \tremolorate, 0.25, \tremolodepth, 0.5, \pan, 1);
@@ -27,11 +27,25 @@ var vol = 0.2, n = 0, lpf=800, reverb=0.2;
 ~superhammondSc4.free;
 )
 
+(
+~zureSc2_4 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((9+12)/12)), \hpf, 100, \lpf, 400, \detune, 1, \out, 8]);
+~zureSc2_5 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((9+12)/12)), \hpf, 100, \lpf, 400, \detune, 1, \out, 8]);
+~zureSc2_6 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((9+12)/12)), \hpf, 100, \lpf, 400, \detune, 1, \out, 8]);
+)
+
+(
+var vol1 = 0.0;
+~zureSc2_4.set(\amp, 2.0*vol1, \freq, 329.628*(2**((9+12)/12)), \detune, 0.007, \lpf, 500, \reverb, 3.0);
+~zureSc2_5.set(\amp, 2.0*vol1, \freq, 329.628*(2**((7+12)/12)), \detune, 0.012, \lpf, 700, \reverb, 3.0);
+~zureSc2_6.set(\amp, 2.0*vol1, \freq, 329.628*(2**((4+12)/12)), \detune, 0.018, \lpf, 500, \reverb, 3.0);
+)
+
 ~pinknoise = Synth("pinknoise", [\amp, 0, \hpf, 100, \lpf, 1000, \out, 14]);
-~pinknoise.set(\amp, 0.05, \hpf, 775, \lpf, 3500);
+~pinknoise.set(\amp, 0.09, \hpf, 775, \lpf, 3500);
 
 ~forest = Synth("forest", [\amp, 0, \out, 14]);
 ~forest.set(\amp, 0.1, \lpf, 3000, \hpf, 1500);
+~forest.set(\amp, 0.0, \lpf, 500, \hpf, 100);
 
 // 全音量0
 (
@@ -42,6 +56,16 @@ var vol = 0.2, n = 0, lpf=800, reverb=0.2;
 ~superhammondSc4.set(\amp, 0);
 ~pinknoise.set(\amp, 0);
 ~forest.set(\amp, 0);
+)
+
+(
+~leavesOfTreesEndless.free;
+~superhammondSc1.free;
+~superhammondSc2.free;
+~superhammondSc3.free;
+~superhammondSc4.free;
+~pinknoise.free;
+~forest.free;
 )
 
 
@@ -80,7 +104,7 @@ var vol = 0.2, n = 0, lpf=800, reverb=0.2;
 )
 
 (
-var vol = 0.3;
+var vol = 0.8;
 ~kaionZure1.set(\amp, 0.9*vol,  \freq, 329.628*(2**(0-12/12)), \detune, 0.05);
 ~kaionZure2.set(\amp, 0.9*vol, \freq, 261.626*(2**(0-12/12)), \detune, 0.09);
 ~kaionZure3.set(\amp, 0.9*vol, \freq, 493.883*(2**(-12/12)), \detune, 0.1);
