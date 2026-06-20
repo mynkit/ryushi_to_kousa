@@ -445,6 +445,15 @@ var vol = 0.0, n = 0, lpf=800, reverb=0;
 ~superhammondSc4.free;
 )
 
+// 全音量0
+(
+~leavesOfTreesEndless.set(\amp, 0);
+~superhammondSc1.set(\amp, 0);
+~superhammondSc2.set(\amp, 0);
+~superhammondSc3.set(\amp, 0);
+~superhammondSc4.set(\amp, 0);
+)
+
 
 // @@ 白鳥さん: 02
 
@@ -488,6 +497,19 @@ var vol = 0.4, n = 5;
 ~superhammondSc6.free;
 ~superhammondSc7.free;
 ~superhammondSc8.free;
+)
+
+
+// 全音量0
+(
+~pinknoise.set(\amp, 0);
+~zureSc2_4.set(\amp, 0);
+~zureSc2_5.set(\amp, 0);
+~zureSc2_6.set(\amp, 0);
+~superhammondSc5.set(\amp, 0);
+~superhammondSc6.set(\amp, 0);
+~superhammondSc7.set(\amp, 0);
+~superhammondSc8.set(\amp, 0);
 )
 
 
