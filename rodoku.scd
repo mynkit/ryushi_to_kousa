@@ -461,7 +461,7 @@ var vol = 0.0, n = 0, lpf=800, reverb=0;
 )
 
 (
-var vol1 = 0.2;
+var vol1 = 0.5;
 ~zureSc2_4.set(\amp, 2.0*vol1, \freq, 329.628*(2**((9+12)/12)), \detune, 0.107, \lpf, 500, \reverb, 3.0);
 ~zureSc2_5.set(\amp, 2.0*vol1, \freq, 329.628*(2**((7+12)/12)), \detune, 0.012, \lpf, 700, \reverb, 3.0);
 ~zureSc2_6.set(\amp, 2.0*vol1, \freq, 329.628*(2**((4+12)/12)), \detune, 0.218, \lpf, 500, \reverb, 3.0);

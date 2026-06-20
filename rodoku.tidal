@@ -188,7 +188,7 @@ d3
   # hpf 600
   # lpf 2000
   # theta (range (1) (-1) $ slow 6 line)
-  # ntag "yanagawa04"
+  # ntag "rotate_y04"
 
 
 all $ ((# room 0.9).(# sz 0.95))
@@ -211,7 +211,7 @@ d9
   # room 0.1 # size 0.9
   # resi 1
   # amp 0.06
-  # ntag "satomi01"
+  # ntag "rust_t01"
 
 d5
   -- $ mix ((|- n 5).(|* amp 1.3))
@@ -229,7 +229,7 @@ d5
   -- # resi 1
   # sustain 23
   # pingpong 0.9 # pingpongt (3/8) # pingpongfb 0.9
-  # ntag "satomi01"
+  # ntag "pad_t01"
 
 -- 「鋼鉄の板を」〜
 
@@ -244,7 +244,7 @@ d1
   # lpf (1000)
   # theta 0.13
   # amp 0.4
-  # ntag "satomi01"
+  # ntag "ice_t01"
 
 
 d2
@@ -261,7 +261,7 @@ d2
   # lpf 1500
   # theta (-0.15)
   # amp 0.25
-  # ntag "satomi01"
+  # ntag "guitar_t01"
 
 
 d3
@@ -275,7 +275,7 @@ d3
   # theta 0
   # resi 1
   # room 0.9 # sz 0.9
-  # ntag "satomi01"
+  # ntag "cucum_t01"
 
 -- 「土の中でも浮力で押し戻されてしまう」〜
 
@@ -295,7 +295,7 @@ d4
   # lpf 1000
   # theta (range (-0.2) 0.2 $ slow 4 sine)
   # amp 0.05
-  # ntag "satomi01"
+  # ntag "gagak_t01"
 
 
 -- 「土の中で超音波を発して」〜
@@ -306,7 +306,7 @@ d6
   # sustain 0.16
   # room 0.9 # sz 0.97 # dry 2.5
   # amp 0.004
-  # ntag "satomi01"
+  # ntag "fm_t01"
 
 d6
   $ degradeBy 0.1
@@ -318,7 +318,7 @@ d6
   # room 0.9 # sz 0.9 # dry 2
   # theta (choose [(-0.2), 0, (0.2)])
   # amp 0.06
-  # ntag "satomi01"
+  # ntag "coffee_t01"
 
 
 -- 「ブルーライトが攀じる」〜
@@ -338,7 +338,7 @@ d7
   # theta (range (-0.1) (0.1) (fast 1.5 rand))
   # amp 0.6
   # gain 2.0
-  # ntag "satomi01"
+  # ntag "river_t01"
 
 d9
   $ (|* amp 0.85)
@@ -363,7 +363,7 @@ d9
   # room 0.8 # sz 0.96
   -- # pingpong 0.6 # pingpongt (3/8) # pingpongfb 0.6
   # amp 0.15
-  # ntag "satomi01"
+  # ntag "sin_t01"
 
 d8
   $ fast 0.5
@@ -381,7 +381,7 @@ d8
   # pingpong 0.3 # pingpongt (3/8) # pingpongfb 0.8
   # room 0.9 # sz 0.99
   # amp (range 0.15 0.2 $ slow 9 rand)
-  # ntag "satomi01"
+  # ntag "gakai_t01"
 
 
 -- @@ 田中さとみさん: 03 黒子 4:40
@@ -394,7 +394,7 @@ d6
   # sustain 0.16
   # room 0.9 # sz 0.97 # dry 2.5
   # amp 0.003
-  # ntag "satomi03"
+  # ntag "fm_t03"
 
 d3
   $ fast (1/3)
@@ -415,7 +415,7 @@ d3
   # vibratoFreq (range 9 10 rand) # vibratoDepth 0.3
   # octaveMix 0.3
   # lpf 5000
-  # ntag "satomi02"
+  # ntag "sin_t03"
 
 
 once
@@ -429,7 +429,7 @@ once
   # resi 1
   # theta 0.05
   # orbit 3
-  # ntag "satomi03"
+  # ntag "door_t03"
 
 
 d4
@@ -443,7 +443,7 @@ d4
   -- # delay 0.7 # delayt (1/16) # delayfb 0.8 # lock 1
   # resi 1
   # theta (range (-0.2) 0.2 rand)
-  # ntag "satomi03"
+  # ntag "door_t03"
 
 d5
   $ degradeBy 0.8
@@ -457,7 +457,7 @@ d5
   # room 0.9 # sz 0.9 # dry 2
   # resi 1
   # amp 0.06
-  # ntag "satomi03"
+  # ntag "gagak_t03"
 
 d1
   $ degradeBy 0.9
@@ -470,7 +470,7 @@ d1
   # shape 0.4
   # theta (range (-0.3) 0.3 $ fast 5 rand)
   # amp (range 0.1 0.08 $ fast 7 rand)
-  # ntag "satomi03"
+  # ntag "collid_t03"
 
 d2
   $ degradeBy 0.1
@@ -483,7 +483,7 @@ d2
   # n (choose [0..10])
   # theta (range (-0.2) 0.2 $ fast 7 rand)
   # amp 0.2
-  # ntag "satomi03"
+  # ntag "ice_t03"
 
 -- 「白いビニール袋の」〜
 
@@ -497,7 +497,7 @@ d7
   # theta (range (-1) 1 rand)
   # room 0.5
   # amp (range 0.1 0.4 $ slow 3 rand)
-  # ntag "satomi03"
+  # ntag "vinyl_t03"
 
 
 
@@ -514,7 +514,7 @@ d1
   # hpf 50 # hpq 0.3
   # resi 1
   # room 0.9 # sz 0.97
-  # ntag "shii01"
+  # ntag "cucum_si01"
 
 
 d2
@@ -528,7 +528,7 @@ d2
   -- # delay 0.7 # delayt (1/16) # delayfb 0.8 # lock 1
   # resi 1
   # theta (range (-0.2) 0.2 rand)
-  # ntag "shii01"
+  # ntag "door_si01"
 
 d3
   $ (|* amp 0.9)
@@ -541,7 +541,7 @@ d3
   # lpf 2000
   # room 0.5
   # amp (range 0.1 0.4 $ slow 3 rand)
-  # ntag "shii01"
+  # ntag "vinyl_si01"
 
 
 -- @@ 紫衣さん: 03 夢十夜 7:10
@@ -558,7 +558,7 @@ d4
   # lpf 1000
   # hpf 60 # hpq 0.2
   # amp 0.04
-  # ntag "shii03"
+  # ntag "gagak_si03"
 
 
 d9
@@ -571,7 +571,7 @@ d9
   # resi (range 0.8 0.9 $ slow 5 rand)
   # lpf 4000
   # amp (range 0.0 0.10 $ slow 7 rand)
-  # ntag "shii03"
+  # ntag "branch_si01"
 
 
 d1
@@ -587,7 +587,7 @@ d1
   # lpf 1100
   # theta (0)
   # amp 0.3
-  # ntag "shii03"
+  # ntag "guitar_si03"
 
 
 d2
@@ -602,7 +602,7 @@ d2
   # resi 1
   # theta 0
   # room 0.9 # sz 0.98
-  # ntag "shii03"
+  # ntag "sin_si03"
 
 
 d5
@@ -617,7 +617,7 @@ d5
   # room 0.9 # sz 0.97 # dry 2
   # hpf 600 # lpf 2000
   # theta (range (-0.1) 0.1 $ fast 7 rand)
-  # ntag "shii03"
+  # ntag "fm_si03"
 
 
 d7
@@ -635,7 +635,7 @@ d7
   # scReverb 0.9 # ice 0.3
   # sustain 20
   # pingpong 0.9 # pingpongt (3/8) # pingpongfb 0.9
-  # ntag "shii03"
+  # ntag "pad_si03"
 
 
 once
@@ -646,6 +646,7 @@ once
   # amp 0.1
   # ntag "shii03"
   # orbit 1
+  # ntag "cucum_si03"
 
 
 
@@ -662,7 +663,7 @@ d1
   # octaveMix 0.1
   # room 0.9 # sz 0.2 # dry 2.0
   # amp 0.3
-  # ntag "shiratori01"
+  # ntag "sin1_sr01"
 
 d2
   $ fast 1.2
@@ -673,8 +674,9 @@ d2
   # sustain 0.5
   # octaveMix 0.5
   # room 0.9 # sz 0.2 # dry 2.0
-  # amp 0.2
-  # ntag "shiratori01"
+  # amp 0.25
+  # ntag "sin2_sr01"
+ 
 
 
 
@@ -695,7 +697,7 @@ d1
   # resi 1
   # lpf (range 2000 1500 rand*rand)
   # hpf 300
-  # ntag "shiratori02"
+  # ntag "nail_sr02"
 
 d3
   $ slow 2
@@ -708,7 +710,7 @@ d3
   # n "<cs5,fs5> <a4,e5>"
   # octaveMix 0.5
   # amp 0.1
-  # ntag "shiratori02"
+  # ntag "sin_sr02"
 
 d4
   $ slow 8
@@ -721,7 +723,7 @@ d4
   # lpf 1000
   # hpf 60 # hpq 0.2
   # amp 0.09
-  # ntag "shiratori02"
+  # ntag "gagak_sr02"
 
 d5
   $ fast 1.5
@@ -744,7 +746,7 @@ d5
   -- # scReverb 1 # ice 0
   # n (range 0 8 $ slow 4 rand)
   # theta (range (-0.15) 0.15 $ slow 11 rand)
-  # ntag "shiratori02"
+  # ntag "gakai_sr02"
 
 
 d6
@@ -756,10 +758,47 @@ d6
   # room 0.98 # sz 0.99 # dry 3
   # theta (range (-0.2) 0.2 $ slow 13 rand)
   # amp 0.01
-  # ntag "shiratori02"
+  # ntag "furin_sr02"
+  
+mod10
+  $ segment 64
+  $ pF "vibrato" (range 1 1.5 $ fast 0.5 saw)
+  # pF "vrate" (range 2 5 $ fast 0.3 rand)
+  # tremolorate (range 5 7 $ slow 11 $ sine)
+  -- # tremolorate (cF 0 "tremolorate")
+  # tremolodepth (range 0.5 0.3 $ slow 30 $ sine)
+  # theta (range (0.95) (1.05) $ slow 10 sine) # dis 1
+  -- # theta (fast 1.3 line) # dis 1
+  -- # theta (cF 0 "synthTheta") # dis (cF 0 "synthDis")
+  # hpf 800
+  # hpq (range 0.0 0.4 $ slow 2.5 rand)
+  # amp 0.0
 
+d10
+  $ (|* gain 1)
+  $ mix ((|+ n 12).(|* gain 0.6))
+  -- $ whenmod 16 12 ((|- n 2).(|* gain 1.08))
+  $ s "superhammondBend"
+  # gain 0.85
+  # n "<b2,fs3,e3,a3>"
+  # voice 1
+  # scReverb 0.9 # ice 0.3
+  # room 0.8 # sz 0.8
+  # ntag "hamm_sr02"
 
+d10 silence
 
+d2
+  $ degradeBy 0.9
+  $ ply (wchoose [(1, 0.3),(2, 0.35),(4, 0.175),(8,0.175)])
+  $ s "cap*12"
+  # n (irand 3)
+  -- # up (choose [(-5),(-12)])
+  # hpf 60 # hpq 0.3
+  # theta (fast 3.3 line)
+  # amp 0.04
+  # resi 1
+  # ntag "cap_sr02"
 
 -- @@ 白鳥さん: 05 小海線 3:15
 
@@ -802,7 +841,7 @@ mod10
   -- # theta (cF 0 "synthTheta") # dis (cF 0 "synthDis")
   # hpf 800
   # hpq (range 0.0 0.4 $ slow 2.5 rand)
-  # amp 0.2
+  # amp 0.8
 
 
 d10
