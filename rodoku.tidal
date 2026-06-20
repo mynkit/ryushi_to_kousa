@@ -73,10 +73,10 @@ d2
 -- 「目と霜の膜表と」〜
 
 d9
-  $ (|* amp 0.9)
-  -- $ sometimesBy 0.4 (mix((rev).(0.25 ~>)))
-  $ s (fit 0 ["simpleSineWave"] "~ [~0] ~ [[~0]0 ~ ~]")
-  -- $ s (fit 0 ["simpleSineWave"] "0? [~0] ~ [[~0]0 ~ 0?]")
+  $ (|* amp 0.7)
+  $ sometimesBy 0.4 (mix ((rev).(0.25 ~>)))
+  -- $ s (fit 0 ["simpleSineWave"] "~ [~0] ~ [[~0]0 ~ ~]")
+  $ s (fit 0 ["simpleSineWave"] "0? [~0] ~ [[~0]0 ~ 0?]")
   # n "<a4,a5>"
   # sustain 0.03
   # lpf 900 # hpf 750
@@ -169,6 +169,25 @@ d5
   # amp 0.5
   # theta (0.0) # dis 1
   # ntag "bass2_y04"
+
+d4
+  $ someCyclesBy 0.4 (degradeBy 1)
+  $ whenmod 16 12 (|+ up (7))
+  $ (0.025 <~)
+  $ slow 2
+  $ while "f t" (# end 0.15)
+  $ sometimesBy 0.1 ((ply "[1 1 [16 2 12 2] 1] [1]").(|* amp "0.7 1"))
+  $ s "~ ~ AM7 ~  ~ [~AM7/2] ~ ~"
+  # n (irand 3)
+  # end (range 0.25 0.3 $ fast 7.1 (1 - rand))
+  # up (-12)
+  # hpf 80 # hpq 0.1
+  # theta (0)
+  # amp 0.1
+  # cut 1
+  # resi 1
+  # ntag "AM7_y04"
+
 
 -- 「転　転がる」〜
 
@@ -786,7 +805,9 @@ d10
   # room 0.8 # sz 0.8
   # ntag "hamm_sr02"
 
-d10 silence
+silence' 10
+
+
 
 d2
   $ degradeBy 0.9
@@ -799,6 +820,9 @@ d2
   # amp 0.04
   # resi 1
   # ntag "cap_sr02"
+
+
+
 
 -- @@ 白鳥さん: 05 小海線 3:15
 

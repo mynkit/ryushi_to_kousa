@@ -15,7 +15,7 @@ var n = 0;
 (
 var vol = 0.4, n = 0, lpf=800, reverb=0.2;
 ~superhammondSc1.set(\amp, 0.6*vol, \freq, ~nToF.("b3", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.21, \lpf, lpf, \hpf, 100,\tremolorate, 6, \tremolodepth, 0.19, \pan, 0.2);
-~superhammondSc2.set(\amp, 0.5*vol, \freq, ~nToF.("fs4", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.274, \lpf, lpf, \hpf, 100, \tremolorate, 4.7, \tremolodepth, 0.15, \pan, -1);
+~superhammondSc2.set(\amp,0.5*vol, \freq, ~nToF.("fs4", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.274, \lpf, lpf, \hpf, 100, \tremolorate, 4.7, \tremolodepth, 0.15, \pan, -1);
 ~superhammondSc3.set(\amp, 0.5*vol, \freq, ~nToF.("e4", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.154, \lpf, lpf, \hpf, 100, \tremolorate, 0.25, \tremolodepth, 0.5, \pan, 1);
 ~superhammondSc4.set(\amp, 0.3*vol, \freq, ~nToF.("a4", 440)*(2**(n/12)), \reverb, reverb, \vibrato, 1, \vrate, 0.08, \lpf, lpf, \hpf, 100, \tremolorate, 0.4, \tremolodepth, 0.7, \pan, -0.2);
 )
@@ -34,7 +34,7 @@ var vol = 0.4, n = 0, lpf=800, reverb=0.2;
 )
 
 (
-var vol1 = 0.0;
+var vol1 = 0.4;
 ~zureSc2_4.set(\amp, 2.0*vol1, \freq, 329.628*(2**((9+12)/12)), \detune, 0.007, \lpf, 500, \reverb, 3.0);
 ~zureSc2_5.set(\amp, 2.0*vol1, \freq, 329.628*(2**((7+12)/12)), \detune, 0.012, \lpf, 700, \reverb, 3.0);
 ~zureSc2_6.set(\amp, 2.0*vol1, \freq, 329.628*(2**((4+12)/12)), \detune, 0.018, \lpf, 500, \reverb, 3.0);
