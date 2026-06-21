@@ -258,6 +258,57 @@ Server.default.waitForBoot{
 		Out.ar(out, sound*0.05*amp);
 	}, [0, 1, 0, 0, 0, 0.2]).add;
 
+	SynthDef(\rain_and_thunder, { |out=0, amp=0.5|
+		var sig;
+		var layer1;
+		var layer2;
+
+		layer1 =
+		tanh(
+			3 * GVerb.ar(
+				HPF.ar(
+					PinkNoise.ar(
+						0.08 + LFNoise1.kr(0.3, 0.02)
+					)
+					+
+					LPF.ar(
+						Dust2.ar(
+							LFNoise1.kr(0.2).range(40, 50)
+						),
+						7000
+					),
+					400
+				),
+				250,
+				100,
+				0.25,
+				drylevel: 0.3
+			) * Line.kr(0, 1, 10)
+		);
+
+		layer2 =
+		GVerb.ar(
+			LPF.ar(
+				10 * HPF.ar(
+					PinkNoise.ar(
+						LFNoise1.kr(3).clip(0, 1)
+						* LFNoise1.kr(2).clip(0, 1) ** 1.8
+					),
+					20
+				),
+				LFNoise1.kr(1).exprange(100, 2500)
+			).tanh,
+			270,
+			30,
+			0.7,
+			drylevel: 0.5
+		) * Line.kr(0, 0.7, 30);
+
+		sig = Limiter.ar(layer1 + layer2);
+
+		Out.ar(out, sig * amp);
+	}, [0, 10]).add;
+
 	// wait load
 	Server.default.sync;
 	~dirt.start(57120, 0 ! 16);

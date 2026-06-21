@@ -358,14 +358,10 @@ var vol1 = 0.5;
 ~forest1.set(\amp, 0.3, \lpf, 500, \hpf, 100);
 ~forest1.free;
 
-~forest2 = Synth("forest", [\amp, 0, \lpf, 500, \hpf, 100, \out, 14]);
-~forest2.set(\amp, 0.3, \lpf, 500, \hpf, 100);
-~forest2.free;
+~rain = Synth(\rain_and_thunder, [\amp, 0]);
+~rain.set(\amp, 0.1);
+~rain.free;
 
-(
-~forest1.free;
-~forest2.free;
-)
 
 // Part: low_noise
 
@@ -414,7 +410,7 @@ var n = -3;
 ~vibNoise3.set(\amp, 0);
 ~blipHarmonics1.set(\amp, 0);
 ~forest1.set(\amp, 0);
-~forest1.set(\amp, 0);
+~rain.set(\amp, 0);
 )
 
 // @@ 白鳥さん: 01
