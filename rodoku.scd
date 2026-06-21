@@ -557,14 +557,13 @@ var vol = 0.5, n = 5;
 
 // @@ 白鳥さん: 05
 
+~river = Synth("pinknoise", [\amp, 0, \hpf, 100, \lpf, 1000, \out, 14]);
+~river.set(\amp, 0.06, \hpf, 800, \lpf, 4700);
+
+~river.free
 
 
-// =================================================
-
-
-// intro
-
-Ndef(\fire).play(vol: 0, numChannels: ~numChannels, fadeTime: 1);
+Ndef(\fire).play(vol: 50, numChannels: ~numChannels, fadeTime: 1);
 Ndef(\fire).stop;
 Ndef(\fire).clear;
 
@@ -577,6 +576,8 @@ Ndef(\fire,{|amp = 2.0, freq = 0.25, numharm=90, lpf = 700, hpf = 200|
 
 Ndef(\fire).set(\amp, 2.0, \freq, 0.25, \numharm, 90, \lpf, 700, \hpf, 200);
 Ndef(\fire).set(\amp, 0);
+
+// =================================================
 
 
 (
@@ -1092,7 +1093,7 @@ var masterVol = 5;
 )
 
 (
-var vol = 1.0, n = 0;
+var vol = 0.0, n = 0;
 ~resonantHammond1.set(\amp, 0.5*vol, \freq, 277.183*0.5*(2**((0+n)/12)), \reverb, 0.8, \vibrato, 1, \vrate, 16, \lpf, 4000, \hpf, 100,\tremolorate, 2, \tremolodepth, 0.2, \pan, -0.1);
 ~resonantHammond2.set(\amp, 0.4*vol, \freq, 277.183*0.5*(2**((7+n)/12)), \reverb, 0.6, \vibrato, 1, \vrate, 32, \lpf, 4000, \hpf, 100, \tremolorate, 8, \tremolodepth, 0.1, \pan, -0.5);
 ~resonantHammond3.set(\amp, 0.4*vol, \freq, 277.183*0.5*(2**((3+n)/12)), \reverb, 0.7, \vibrato, 1, \vrate, 28, \lpf, 4000, \hpf, 100, \tremolorate, 20, \tremolodepth, 0.1, \pan, 0.5);

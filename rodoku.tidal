@@ -941,7 +941,99 @@ d7
   # theta (range (-0.1) (0.1) (fast 1.5 rand))
   # amp 0.6
   # gain 2.0
-  # ntag "shiratori05"
+  # ntag "river_sr05"
+
+d1
+  -- $ slow 2
+  -- $ (|- n 12)
+  $ (|* amp 2.0)
+  $ mix ((|+ n 12).(|* amp 0.5))
+  $ when ((/=3).(flip mod 4)) (degradeBy 1)
+  $ s "[~padDirt]"
+  # n "<<a4,fs5> <a4,cs5>>"
+  # amp 0.1
+  # hpf 170 # lpf 2000
+  # pF "modspeed" 5000
+  # tremolodepth 0.8 # tremolorate (range 2 6 rand)
+  # resi 1
+  # scReverb 0.9 # ice 0.3
+  # sustain 20
+  # pingpong 0.9 # pingpongt (3/8) # pingpongfb 0.9
+  # ntag "pad_sr05"
+
+d2
+  -- $ slow 1
+  $ degradeBy 0.8
+  $ s "[~cable]*2"
+  # amp 0.03
+  # ntag "cable_sr05"
+
+
+d3
+  $ slow 4
+  -- $ whenmod 4 2 (degradeBy 1)
+  $ (0.02 ~>)
+  -- $ mix ((|- n 9).(|* amp 0.6))
+  $ mix ((|- n 5).(|* amp 0.6))
+  $ s "vibratoSineWave/2 ~ [~[~vibratoSineWave/2]] ~"
+  # sustain 10
+  # n "<fs5,cs5> ~ <a5,fs5> <a5,fs5>"
+  # vibratoFreq 10 # vibratoDepth 0.9
+  # tremolorate 15 # tremolodepth 0.4
+  # resi 1
+  # scReverb 0.9
+  # room 0.8 # sz 0.9
+  # pingpong 0.9 # pingpongt (3/4) # pingpongfb 0.6
+  # amp 0.1
+  # ntag "sine_sr05"
+
+d4
+  $ s "~ simpleSawWave/8"
+  # n "<e2>"
+  # sustain 8
+  # hpf 50 # hpq 0.3
+  # lpf 700
+  # amp 0.1
+  # ntag "base_sr05"
+
+
+d5
+  $ s "superfm/10"
+  # amp 0.01
+  # n "cs9"
+  # sustain 0.01
+  # room 0.9 # sz 0.99 # dry 3
+  # theta 0
+  # ntag "fm_sr05"
+
+mod10
+  $ segment 64
+  $ pF "vibrato" (range 1 1.5 $ fast 0.5 saw)
+  # pF "vrate" (range 2 5 $ fast 0.3 rand)
+  # tremolorate (range 5 7 $ slow 11 $ sine)
+  # tremolodepth (range 0.5 0.3 $ slow 30 $ sine)
+  # theta (range (0.95) (1.05) $ slow 10 sine) # dis 1
+  # hpf 800
+  # hpq (range 0.0 0.4 $ slow 2.5 rand)
+  # amp 0.08
+
+d10
+  $ (|* gain 1)
+  $ mix ((|+ n 12).(|* gain 0.6))
+  -- $ whenmod 16 12 ((|- n 2).(|* gain 1.08))
+  $ s "superhammondBend"
+  # gain 0.85
+  # n "<b3,cs4,e4,a4>"
+  # voice 1
+  # scReverb 0.9 # ice 0.3
+  # room 0.8 # sz 0.8
+  # ntag "hamm_sr02"
+
+silence' 10
+
+
+
+
 
 -- =================================================
 
