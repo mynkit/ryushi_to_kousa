@@ -244,6 +244,20 @@ Server.default.waitForBoot{
 		Out.ar(out, eq * 3 * amp);
 	}, [10, 0, 0.6, 0.1, 0.1, 1]).add;
 
+	SynthDef(\zureSc3, {|out, amp=1, pan, accelerate, freq, decay=0, detune=1,lpf=8000,hpf=50 |
+		var basefreq = freq;
+		var sound = VarSaw.ar(basefreq, 0, 1);
+		var sound2 = VarSaw.ar(basefreq*(detune/100+1), 0, 1);
+		var sound3 = VarSaw.ar(basefreq*(-1*detune/100+1), 0, 1);
+		sound = sound - DelayN.ar(sound2,0.2)
+		+ DelayN.ar(sound3,0.2);
+		sound = LPF.ar(sound, lpf);
+		sound = HPF.ar(sound, hpf);
+		sound = NumChannels.ar([sound*(1-pan)/2, sound*(1+pan)/2], 2);
+
+		Out.ar(out, sound*0.05*amp);
+	}, [0, 1, 0, 0, 0, 0.2]).add;
+
 	// wait load
 	Server.default.sync;
 	~dirt.start(57120, 0 ! 16);
@@ -253,28 +267,3 @@ Server.default.waitForBoot{
 	~orbitMonitor.();
 }
 )
-
-
-
-
-(
-// SuperDirtが起動している前提
-// 例: ~dirt.start;
-
-var addr = NetAddr("127.0.0.1", 57120); // SuperDirtのポート
-
-var msg = [
-	"s", "tabla2",
-	"n", 0,
-	"amp", 0.1,
-	"lpf", 1000,
-	"speed", 0.9,
-	"orbit", 10
-];
-
-// /dirt/play に送信
-addr.sendMsg("/dirt/play", *msg);
-)
-
-
-

@@ -419,8 +419,34 @@ var n = -3;
 // @@ 白鳥さん: 01
 
 ~leavesOfTreesEndless = Synth("leavesOfTreesEndless", [\amp, 0, \out, 0]);
-~leavesOfTreesEndless.set(\amp, 0.0, \out, 14);
+~leavesOfTreesEndless.set(\amp, 0.5, \out, 14);
 ~leavesOfTreesEndless.free;
+
+~drone5 = Synth(\drone, [\freq, ~nToF.("e2", 440), \amp, 0.0, \numHarm, 7, \reverb, 0.9, \lpf, 1000]);
+~drone5.set(\amp, 1.0);
+~drone5.set(\freq, ~nToF.("e2", 440));
+~drone5.set(\parFreq, 0.1);
+~drone5.set(\pan2Freq, 0.5);
+~drone5.set(\numHarm, 6);
+~drone5.set(\lpf, 1000);
+~drone5.set(\reverb, 0.9);
+~drone5.set(\vibratoFreq, 1.3, \vibratoDepth, 0.1);
+
+~drone5.free;
+
+// 全音量0
+(
+~leavesOfTreesEndless.set(\amp, 0);
+~drone5.set(\amp, 0);
+)
+
+(
+~leavesOfTreesEndless.free;
+~drone5.free;
+)
+
+
+// @@ 白鳥さん: 02
 
 (
 var n = 0;
@@ -445,21 +471,37 @@ var vol = 0.0, n = 0, lpf=800, reverb=0;
 ~superhammondSc4.free;
 )
 
+(
+var out = 8;
+~zureSc2_1 = Synth(\zureSc2, [\amp, 0, \freq, 3329.628*(2**((-3+24)/12)), \hpf, 50, \lpf, 400, \detune, 0, \out, out]);
+~zureSc2_2 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((0+24)/12)), \hpf, 50, \lpf, 400, \detune, 0, \out, out]);
+~zureSc2_3 = Synth(\zureSc2, [\amp, 0, \freq, 329.628*(2**((2+12)/12)), \hpf, 50, \lpf, 400, \detune, 0, \out, out]);
+)
+
+(
+var vol1 = 0.2;
+
+~zureSc2_1.set(\amp, 2.0*vol1, \freq, 329.628*(2**((-3+24)/12)), \detune, 2.027, \lpf, 500, \reverb, 2.0);
+~zureSc2_2.set(\amp, 2.0*vol1, \freq, 329.628*(2**((0+24)/12)), \detune, 1.022, \lpf, 500, \reverb, 2.0);
+~zureSc2_3.set(\amp, 0.5*vol1, \freq, 329.628*(2**((2+12)/12)), \detune, 0.008, \lpf, 500, \reverb, 2.0);
+)
+
+
 // 全音量0
 (
-~leavesOfTreesEndless.set(\amp, 0);
 ~superhammondSc1.set(\amp, 0);
 ~superhammondSc2.set(\amp, 0);
 ~superhammondSc3.set(\amp, 0);
 ~superhammondSc4.set(\amp, 0);
+~zureSc2_1.set(\amp, 0);
+~zureSc2_2.set(\amp, 0);
+~zureSc2_3.set(\amp, 0);
 )
 
 
-// @@ 白鳥さん: 02
-
 ~pinknoise = Synth("pinknoise", [\amp, 0, \hpf, 100, \lpf, 1000, \out, 14]);
 // ~pinknoise.set(\amp, 0.0, \hpf, 800, \lpf, 4700);
-~pinknoise.set(\amp, 0.1, \hpf, 100, \lpf, 1000);
+~pinknoise.set(\amp, 0.15, \hpf, 100, \lpf, 1000);
 
 ~pinknoise.free
 
@@ -485,7 +527,7 @@ var n = 5;
 )
 
 (
-var vol = 0.4, n = 5;
+var vol = 0.5, n = 5;
 ~superhammondSc5.set(\amp, 0.4*vol, \freq, 277.183*0.5*(2**(0+n/12)), \reverb, 0.8, \vibrato, 1, \vrate, 1.6, \lpf, 8000, \hpf, 100,\tremolorate, 2, \tremolodepth, 0.2, \pan, -0.1);
 ~superhammondSc6.set(\amp, 0.4*vol, \freq, 277.183*0.5*(2**(2+n/12)), \reverb, 0.6, \vibrato, 1, \vrate, 1.46, \lpf, 8000, \hpf, 100, \tremolorate, 1.8, \tremolodepth, 0.1, \pan, -1);
 ~superhammondSc7.set(\amp, 0.4*vol, \freq, 277.183*0.5*(2**(9+n/12)), \reverb, 0.7, \vibrato, 1, \vrate, 1.8, \lpf, 8000, \hpf, 100, \tremolorate, 5, \tremolodepth, 0.1, \pan, 1);

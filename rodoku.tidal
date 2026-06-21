@@ -682,32 +682,124 @@ once
 -- @@ 白鳥さん: 01 パノラマ島へ帰る 0:30
 
 d1
+  $ fast 0.45
   $ s "vibratoSineWave"
-  # n "fs5"
+  # n "<a4,fs5>"
   # vibratoFreq 20
   # vibratoDepth 0.9
-  # sustain 0.5
+  # sustain 1
   # octaveMix 0.1
-  # room 0.9 # sz 0.2 # dry 2.0
+  # room 0.9 # sz 0.9 # dry 2.0
   # amp 0.3
   # ntag "sin1_sr01"
 
 d2
-  $ fast 1.2
+  $ fast 0.6
   $ s "~ vibratoSineWave"
-  # n "e4"
+  # n "<a4,cs5>"
   # vibratoFreq 20
   # vibratoDepth 0.9
-  # sustain 0.5
+  # sustain 0.8
   # octaveMix 0.5
-  # room 0.9 # sz 0.2 # dry 2.0
+  # room 0.9 # sz 0.9 # dry 2.0
   # amp 0.25
   # ntag "sin2_sr01"
  
 
+d3
+  $ fast 0.25
+  $ s "~ vibratoSineWave"
+  # n "<e5,b5>"
+  # vibratoFreq 20
+  # vibratoDepth 0.9
+  # sustain 0.5
+  # octaveMix 0.5
+  # room 0.9 # sz 0.9 # dry 2.0
+  # amp 0.23
+  # ntag "sin3_sr01"
 
 
 -- @@ 白鳥さん: 02 雷鳴語による新しい音楽 4:15
+
+d3
+  $ (|* amp 0.3)
+  $ (|+ n 2)
+  $ slow 2
+  $ mix ((|+ n 5).(|* amp 0.6))
+  $ (|+ n 12)
+  $ s (fit 0 ["padDirt"] "0 0 0 0 ~~~0/4 ~~0~ ~~~~")
+  # n "[<e3 e3 e3 cs4> <b4> <fs4> <~>] [~] [~] [~]"
+  # amp "[0.8 1 0.7 0.7] 0.8 1 1"
+  # sustain "[10 0.8 0.8 2] 1.5 1 1"
+  # church 1
+  # tremolorate 9 # tremolodepth 0.4
+  # pingpong 0.3 # pingpongt (3/4) # pingpongfb 0.8
+  # room 0.81 # sz 0.95
+  # hpf 80
+  -- # lpf 3400
+  # scReverb 1
+  # ntag "pad_sr02"
+
+
+d5
+  $ slow 1
+  $ degradeBy 0.4
+  -- $ mix ((|- n 12).(|* amp 0.5))
+  $ someCyclesBy 0.9 ((1/4)~>)
+  $ mix ((|- n 5).(|* amp 0.8))
+  -- $ sometimesBy 0.3 ((1/8)~>)
+  $ sometimesBy 0.3 ((|+ n "5"))
+  $ s "[~ supervibe/16] [supervibe/8 [supervibe/2]] [supervibe/12] ~"
+  # n "<e5,e6> [fs6 <cs5,cs6>] <b5,fs4> ~"
+  # sustain 0.08
+  # lpf 4000
+  # hpf 60 # hpq 0.4
+  # theta (range (-0.1) 0.1 $ slow 22 rand)
+  # room 0.9 # sz 0.96 # dry 2.6
+  # amp 0.04
+  # ntag "vibe_sr02"
+
+d6
+  $ degradeBy 0.9
+  $ (|* amp 0.21)
+  $ sometimesBy 0.4 ((1/128) ~>)
+  $ sometimesBy 0.5 ((9/128) ~>)
+  $ sometimesBy 0.5 ((11/128) ~>)
+  $ sometimesBy 0.6 ((19/128) ~>)
+  $ someCyclesBy 0.4 rev
+  $ s "supergong*23"
+  # n (innerJoin $ choose ["a9","b8","cs9","fs8","e8","gs8","cs10","af9","b9"])
+  # sustain 0.4
+  # lpf 3000
+  # resi 1
+  # theta (range (-1) 1 $ slow 3 rand)
+  # room 0.9 # sz 0.93 # dry 2.3
+  # amp (range 0.0 0.3 $ slow 11 rand)
+  # ntag "gong_sr02"
+
+d4
+  $ (|* amp 0.4)
+  $ sometimesBy 0.8 (|* speed (-1))
+  $ sometimesBy 0.5 (|+ up (choose [0,2,5,12]))
+  $ mix ((|* amp 0.7).(|+ up 7))
+  $ degradeBy 0.85
+  $ sometimesBy 0.3 (0.5 ~>)
+  $ sometimesBy 0.3 (0.25 ~>)
+  $ sometimesBy 0.3 (0.75 ~>)
+  $ fast 4
+  $ s "~harmonics~~"
+  # up (-12)
+  -- # n 6
+  # speed 1
+  # room 0.8 # sz 0.9 # dry 2.9
+  # n (fast 1.05 $ irand 6)
+  # lpf 2000
+  # resi 1
+  # theta (range (-1) 1 rand)
+  # amp (range 0.08 0.1 $ fast 4 rand)
+  # pingpong 0.4 # pingpongt (3/32) # pingpongfb 0.8
+  # ntag "harm_sr02"
+
 
 d1
   $ (|* amp 0.3)
@@ -739,7 +831,7 @@ d3
   # amp 0.1
   # ntag "sin_sr02"
 
-d4
+d2
   $ slow 8
   $ mix ((|- up 12).(|* amp 0.3))
   $ s "gagaku"
@@ -749,12 +841,12 @@ d4
   # theta 0
   # lpf 1000
   # hpf 60 # hpq 0.2
-  # amp 0.09
+  # amp 0.05
   # ntag "gagak_sr02"
 
 d5
   $ fast 1.5
-  $ (|* amp 0.3)
+  $ (|* amp 0.2)
   $ (mix ((|+ up (-5)).(|* amp 0.8)))
   $ someCyclesBy 0.3 (degradeBy 1)
   $ someCyclesBy 0.4 (|- up (choose [2,5]))
