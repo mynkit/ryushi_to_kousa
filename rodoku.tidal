@@ -82,6 +82,7 @@ d9
   # lpf 900 # hpf 750
   # room 0.2
   # amp 0.4
+  # theta 0
   # ntag "click_y04"
 
 d4
