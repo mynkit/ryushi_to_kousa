@@ -283,11 +283,11 @@ var vol1 = 0.5;
 
 ~noiseHarmony = Synth(\noiseHarmony, [\amp, 0, \freq1, 99, \freq2, 144, \freq3, 183, \freq4, 260, \freq5, 335, \gain1, 40, \gain2, 40,\gain3, 30, \gain4, 3, \gain5, 3, \out, 12]);
 
-~noiseHarmony.set(\amp, 1.0);
+~noiseHarmony.set(\amp, 1.3);
 
 ~noiseHarmony.set(\freq1, 99, \freq2, 144, \freq3, 183, \freq4, 260, \freq5, 335, \gain1, 40, \gain2, 40,\gain3, 30, \gain4, 3, \gain5, 0);
 
-// ~noiseHarmony.set(\freq1, 99, \freq2, 144, \freq3, 183, \freq4, 260, \freq5, 1485, \gain1, 40, \gain2, 40,\gain3, 30, \gain4, 3, \gain5, 0);
+~noiseHarmony.set(\freq1, 99, \freq2, 144, \freq3, 183, \freq4, 260, \freq5, 1485, \gain1, 40, \gain2, 40,\gain3, 30, \gain4, 3, \gain5, 0);
 
 
 // cs: 277.183
@@ -296,7 +296,7 @@ var vol1 = 0.5;
 // a: 440.000
 // b: 493.883
 ~drone1 = Synth(\drone, [\freq, ~nToF.("a1", 440), \amp, 0.0, \numHarm, 5, \reverb, 0.9, \lpf, 2000, \out, 4]);
-~drone1.set(\amp, 0.5);
+~drone1.set(\amp, 0.4);
 ~drone1.set(\freq, ~nToF.("a1", 440));
 ~drone1.set(\parFreq, 0.5);
 ~drone1.set(\pan2Freq, 0.1);
@@ -337,7 +337,7 @@ var vol1 = 0.5;
 
 
 ~drone4 = Synth(\drone, [\freq, ~nToF.("e2", 440), \amp, 0.0, \numHarm, 3, \reverb, 0.8, \lpf, 2000]);
-~drone4.set(\amp, 1.0);
+~drone4.set(\amp, 0.7);
 ~drone4.set(\freq, ~nToF.("e2", 440));
 ~drone4.set(\parFreq, 0.1);
 ~drone4.set(\pan2Freq, 0.5);
@@ -351,6 +351,20 @@ var vol1 = 0.5;
 ~drone2.free;
 ~drone3.free;
 ~drone4.free;
+)
+
+~forest1 = Synth("forest", [\amp, 0, \out, 14]);
+~forest1.set(\amp, 0.1, \lpf, 3000, \hpf, 1500);
+~forest1.set(\amp, 0.3, \lpf, 500, \hpf, 100);
+~forest1.free;
+
+~forest2 = Synth("forest", [\amp, 0, \lpf, 500, \hpf, 100, \out, 14]);
+~forest2.set(\amp, 0.3, \lpf, 500, \hpf, 100);
+~forest2.free;
+
+(
+~forest1.free;
+~forest2.free;
 )
 
 // Part: low_noise
@@ -385,19 +399,6 @@ var n = -3;
 ~blipHarmonics1.free;
 )
 
-~forest1 = Synth("forest", [\amp, 0, \out, 14]);
-~forest1.set(\amp, 0.3, \lpf, 3000, \hpf, 1500);
-~forest1.set(\amp, 0.3, \lpf, 500, \hpf, 100);
-~forest1.free;
-
-~forest2 = Synth("forest", [\amp, 0, \lpf, 500, \hpf, 100, \out, 14]);
-~forest2.set(\amp, 0.3, \lpf, 500, \hpf, 100);
-~forest2.free;
-
-(
-~forest1.free;
-~forest2.free;
-)
 
 
 
@@ -558,12 +559,12 @@ var vol = 0.5, n = 5;
 // @@ 白鳥さん: 05
 
 ~river = Synth("pinknoise", [\amp, 0, \hpf, 100, \lpf, 1000, \out, 14]);
-~river.set(\amp, 0.06, \hpf, 800, \lpf, 4700);
+~river.set(\amp, 0.0, \hpf, 800, \lpf, 4700);
 
 ~river.free
 
 
-Ndef(\fire).play(vol: 50, numChannels: ~numChannels, fadeTime: 1);
+Ndef(\fire).play(vol: 0, numChannels: ~numChannels, fadeTime: 1);
 Ndef(\fire).stop;
 Ndef(\fire).clear;
 

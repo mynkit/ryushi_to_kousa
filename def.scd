@@ -73,7 +73,7 @@ Server.default.waitForBoot{
 		a=LPF.ar(a,lpf);
 		a=HPF.ar(a,hpf-(groundNoise*(hpf-100)));
 		Out.ar(out, amp * a * 5);
-	}, [1, 1, 1]).add;
+	}, [10, 5, 5]).add;
 	SynthDef(\pad, {
 		| out=0, amp=1, freq=440, tremolo=0, parFreq=0|
 		var gate = 1;
