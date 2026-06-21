@@ -358,8 +358,8 @@ var vol1 = 0.5;
 ~forest1.set(\amp, 0.3, \lpf, 500, \hpf, 100);
 ~forest1.free;
 
-~rain = Synth(\rain_and_thunder, [\amp, 0]);
-~rain.set(\amp, 0.1);
+~rain = Synth(\rain_and_thunder, [\rain_amp, 0, \thunder_amp, 0]);
+~rain.set(\rain_amp, 0.05, \thunder_amp, 0.02);
 ~rain.free;
 
 
@@ -410,7 +410,7 @@ var n = -3;
 ~vibNoise3.set(\amp, 0);
 ~blipHarmonics1.set(\amp, 0);
 ~forest1.set(\amp, 0);
-~rain.set(\amp, 0);
+~rain.set(\rain_amp, 0, \thunder_amp, 0);
 )
 
 // @@ 白鳥さん: 01

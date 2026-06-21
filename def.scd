@@ -258,7 +258,7 @@ Server.default.waitForBoot{
 		Out.ar(out, sound*0.05*amp);
 	}, [0, 1, 0, 0, 0, 0.2]).add;
 
-	SynthDef(\rain_and_thunder, { |out=0, amp=0.5|
+	SynthDef(\rain_and_thunder, { |out=0, rain_amp=0.5, thunder_amp=0.0|
 		var sig;
 		var layer1;
 		var layer2;
@@ -304,10 +304,10 @@ Server.default.waitForBoot{
 			drylevel: 0.5
 		) * Line.kr(0, 0.7, 30);
 
-		sig = Limiter.ar(layer1 + layer2);
+		sig = Limiter.ar((layer1*rain_amp)+(layer2*thunder_amp));
 
-		Out.ar(out, sig * amp);
-	}, [0, 10]).add;
+		Out.ar(out, sig);
+	}, [0, 10, 10]).add;
 
 	// wait load
 	Server.default.sync;
